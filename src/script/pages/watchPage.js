@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Form, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button, Col, Row } from 'react-bootstrap';
 import Dplayer from 'react-dplayer';
 import AnsQuesItem from '../components/AnsQuesItem.js';
 import LessonInf from '../components/LessonInf.js';

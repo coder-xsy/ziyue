@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import lessonCover from '../../img/lessonCover.jpg';
+import { Row, Col } from 'react-bootstrap';
 import '../../style/components/LessonInf.css';
 export default class LessonInf extends Component {
     render() {
         const { lessonName, lessonFrom,
             lessonDate, lessonLocation } = this.props.inf;
         return (
-            <div className = "lessonInf">
-                <img className = "lessonCover" src = { lessonCover } alt = "cover" />
-                <div className = "lessonText">
+            <Row className = "lessonInf">
+                <Col lg="3" xl="3" md="3" sm="4" xs="6">
+                    <img className = "lessonCover" src = { lessonCover } alt = "cover" />
+                </Col>
+                <Col lg="9" xl="9" md="9" sm="8" xs="12" className = "lessonText">
                     <h3>
                         <span>{ `课程名:${lessonName?lessonName:''}` }</span>
                         <span>{ `来源:${lessonFrom?lessonFrom:''}` }</span>
@@ -18,12 +21,12 @@ export default class LessonInf extends Component {
                         <span>当前视频:</span>
                         {
                             lessonLocation ? lessonLocation.map(
-                                item=>(<span key = {item} >{`${item}>`}</span>)
+                                (item,index,arr)=>(<span key = {item} >{`${item}${index===arr.length-1?"":">"}`}</span>)
                             ) : ""
                         }
                     </p>
-                </div>
-            </div>
+                </Col>
+            </Row>
         )
     }
 }

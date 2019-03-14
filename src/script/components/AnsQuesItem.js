@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import sUser from '../../img/sUser.png';
+import { Row, Col } from 'react-bootstrap';
 import '../../style/components/AnsQuesItem.css';
 export default class AnsQuesItem extends Component {
     render() {

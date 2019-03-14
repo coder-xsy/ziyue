@@ -12,3 +12,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media screen and (min-width:1200px) {
+  html{
+    font-size:16px; 
+  }
+}
+@media screen and (min-width:992px) and (max-width:1200px){
+  html{
+    font-size: 13.23px;
+  }
+}
+@media screen and (min-width:768px) and (max-width:992px){
+  html{
+    font-size:10.24px; 
+  }
+}
+@media screen and (min-width:576px) and (max-width: 768px){
+  html{
+    font-size:7.68px; 
+  }
+}
+@media screen and (max-width:576px) {
+  html{
+    font-size:5.34px; 
+  }
+}

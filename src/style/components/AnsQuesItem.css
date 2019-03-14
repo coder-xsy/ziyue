@@ -1,22 +1,22 @@
 .ansQuesItem{
-    padding-left:22px;
-    padding-right:22px;
-    padding-bottom:0.5em;
+    padding-left:1rem;
+    padding-right:1rem;
+    padding-bottom:0.5rem;
     border-bottom: 1px dashed #cccccc;
-    margin-top:1em;
+    margin-top:1rem;
 }
 .Ques,.Ans{
-    font-size: 18px;
+    font-size: 1rem;
     color:#333333;
 }
 .Ans{
-    margin-top:0.6em;
+    margin-top:0.6rem;
 }
 .Ques label,.Ans label{
     float: left;
 }
 .Ques .content,.Ans .content {
-    margin-left:3em;
+    margin-left:3rem;
 }
 .Ques .queInf,.Ans .ansInf{
     display: flex;
@@ -28,11 +28,11 @@
     align-items: center;
 }
 .sUser{
-    width:1.6em;
+    width:1.6rem;
     display: inline-block;
-    margin-right:0.6em;
+    margin-right:0.6rem;
 }
 .quesText,ansText{
-    margin-top:0.4em;
-    padding-left:0.6em;
+    margin-top:0.4rem;
+    padding-left:0.6rem;
 }
