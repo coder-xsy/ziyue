@@ -1,0 +1,28 @@
+.foot{
+    background-color: #121314;
+    color:#666666;
+    padding:1em 0.2em;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:3em;
+    justify-content: space-around;
+    align-items: center;
+}
+.footLogo{
+    display: inline-block;
+    padding: 0.8em 1.2em;
+    background-color: #1abc9c;
+    border: 1px solid transparent;
+    border-radius: 0.4em;
+    font-weight: bold;
+    color: white;
+}
+.footLinks span{
+    display: inline-block;
+    margin-left:2em;
+}
+.shareLinks img{
+    width:2em;
+    display: inline-block;
+    margin-right:0.6em;
+}

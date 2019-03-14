@@ -1,0 +1,38 @@
+.ansQuesItem{
+    padding-left:22px;
+    padding-right:22px;
+    padding-bottom:0.5em;
+    border-bottom: 1px dashed #cccccc;
+    margin-top:1em;
+}
+.Ques,.Ans{
+    font-size: 18px;
+    color:#333333;
+}
+.Ans{
+    margin-top:0.6em;
+}
+.Ques label,.Ans label{
+    float: left;
+}
+.Ques .content,.Ans .content {
+    margin-left:3em;
+}
+.Ques .queInf,.Ans .ansInf{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.quesUser,ansUser{
+    display: flex;
+    align-items: center;
+}
+.sUser{
+    width:1.6em;
+    display: inline-block;
+    margin-right:0.6em;
+}
+.quesText,ansText{
+    margin-top:0.4em;
+    padding-left:0.6em;
+}

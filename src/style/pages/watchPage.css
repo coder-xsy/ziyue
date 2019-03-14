@@ -1,0 +1,71 @@
+.topHead{
+    border-bottom:2px solid gray;
+}
+.logo{
+    background-color: #1abc9c;
+    font-weight: bold;
+    color:white;
+    border:none;
+    height:49px;
+    width:120px;
+    display: inline-block;
+    margin-left:40px;
+}
+.searchBox{
+    height:40px;
+    width:300px;
+    font-weight:bold;
+    margin-left:40px;
+    letter-spacing: 0.1rem;
+    border:1px solid #7f8c8d;
+    border-radius: 20px;
+    padding-left:1rem;
+    outline: none;
+    color:#7f8c8d;
+    position: relative;
+}
+.searchBox:hover,.searchBox:active{
+    border-color: #1abc9c;
+}
+
+.userContainer{
+    margin-right:30px;
+    padding-left:40px;
+}
+.login,.register{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top:0px;
+    padding-bottom: 0px;
+}
+.lesson{
+    background-color: #34495e;
+    padding:16px;
+}
+.playerContainer{
+    margin-top:10px;
+    /* height:80vh; */
+    border-radius: 8px;
+}
+.dplayer-controller-mask{
+    border-radius: 8px;
+}
+
+.ansQues{
+    padding:20px 46px;
+}
+.ansHead{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+}
+.ansLogo{
+    width:46px;
+}
+.ansTitle{
+    color:#2c3e50;
+    margin-left:15px;
+    font-weight: bold;
+}
