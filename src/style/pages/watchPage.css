@@ -1,56 +1,18 @@
-.topHead{
-    border-bottom:2px solid gray;
-}
-.logo{
-    background-color: #1abc9c;
-    font-weight: bold;
-    color:white;
-    border:none;
-    height:49px;
-    width:120px;
-    display: inline-block;
-    margin-left:40px;
-}
-.searchBox{
-    height:40px;
-    width:300px;
-    font-weight:bold;
-    margin-left:40px;
-    letter-spacing: 0.1rem;
-    border:1px solid #7f8c8d;
-    border-radius: 20px;
-    padding-left:1rem;
-    outline: none;
-    color:#7f8c8d;
-    position: relative;
-}
-.searchBox:hover,.searchBox:active{
-    border-color: #1abc9c;
-}
-
-.userContainer{
-    margin-right:30px;
-    padding-left:40px;
-}
-.login,.register{
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding-top:0px;
-    padding-bottom: 0px;
-}
 .lesson{
-    background-color: #34495e;
-    padding:16px;
+    padding: 6px 6px;
+    overflow: hidden;
 }
 .playerContainer{
-    margin-top:10px;
-    /* height:80vh; */
-    border-radius: 8px;
+    margin-top:6px;
+    position: relative;
+    height:80vh;
 }
-.dplayer-controller-mask{
+/* .dplayer-controller-mask{
     border-radius: 8px;
+} */
+.videoPlayer{
+    height:100%;
 }
-
 .ansQues{
     padding:1rem 2rem;
 }
@@ -68,4 +30,75 @@
     color:#2c3e50;
     margin-left:1rem;
     font-weight: bold;
+}
+
+.listContainer{
+    float:right;
+    height:100%;
+    width:350px;
+    position: relative;
+    
+}
+.listContainer .list{
+    width:350px;
+    position: absolute;
+    height: 100%;
+    top:0px;
+    left:6px;
+    /* background-color:#f1f1f1; */
+}
+.list .hidden{
+    position: absolute;
+    top:40%;
+    left:-6px;
+    cursor:pointer;
+}
+.list .show{
+    position: absolute;
+    top:40%;
+    left:-54px;
+    cursor: pointer;
+}
+.list .hidden:hover{
+    background-color: #34495E;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.list .show:hover{
+    background-color: #34495E;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.aniSlideRight .show,.aniSlideLeft .hidden{
+    display: inline;
+    z-index: 999;
+}
+.aniSlideLeft .show,.aniSlideRight .hidden{
+    display: none;
+}
+
+.aniSlideRight{
+    animation: slideRight 1s;
+    width:0px;
+}
+.aniSlideLeft{
+    animation: slideLeft 1s;
+    width:350px;
+}
+@keyframes slideRight{
+    from{
+        width:350px;
+    }
+    to{
+        width:0px;
+    }
+}
+@keyframes slideLeft {
+    from{
+        width:0px;
+    }
+    to{
+        width:350px;
+    }
 }

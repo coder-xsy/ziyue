@@ -1,0 +1,43 @@
+.topHead{
+    background-color: #34495E;
+}
+.topHead .logo{
+    background-color: #1abc9c;
+    font-weight: bold;
+    color:white;
+    border:none;
+    height:49px;
+    width:120px;
+    display: inline-block;
+    margin-left:40px;
+}
+.topHead .searchBox{
+    height:40px;
+    width:300px;
+    font-weight:bold;
+    margin-left:40px;
+    letter-spacing: 0.1rem;
+    border:1px solid #7f8c8d;
+    border-radius: 20px;
+    padding-left:1rem;
+    outline: none;
+    color:#7f8c8d;
+    position: relative;
+}
+.topHead .searchBox:hover,.topHead .searchBox:active{
+    border-color: #1abc9c;
+}
+
+.topHead .userContainer{
+    margin-right:30px;
+    padding-left:40px;
+}
+.topHead .userContainer .nav-link{
+    color:white;
+}
+.topHead .login,.topHead .register{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top:0px;
+    padding-bottom: 0px;
+}

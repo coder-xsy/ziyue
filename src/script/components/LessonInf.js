@@ -8,10 +8,10 @@ export default class LessonInf extends Component {
             lessonDate, lessonLocation } = this.props.inf;
         return (
             <Row className = "lessonInf">
-                <Col lg="3" xl="3" md="3" sm="4" xs="6">
+                <Col lg="2" xl="2" md="2" sm="4" xs="6">
                     <img className = "lessonCover" src = { lessonCover } alt = "cover" />
                 </Col>
-                <Col lg="9" xl="9" md="9" sm="8" xs="12" className = "lessonText">
+                <Col lg="10" xl="10" md="10" sm="8" xs="12" className = "lessonText">
                     <h3>
                         <span>{ `课程名:${lessonName?lessonName:''}` }</span>
                         <span>{ `来源:${lessonFrom?lessonFrom:''}` }</span>
