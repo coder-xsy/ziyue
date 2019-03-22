@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 //import { Navbar, Nav, Form, Button, Col, Row } from 'react-bootstrap';
 import Dplayer from 'react-dplayer';
 import Header from '../containers/Header.js';
-// import AnsQuesItem from '../components/AnsQuesItem.js';
 import LessonInf from '../components/LessonInf.js';
-// import PPtplayer from '../components/PPtplayer.js';
+import PPtplayer from '../components/PPtplayer.js';
 import Footer from '../containers/Footer.js';
-import Hidden from '../../img/right.png';
-import Show from '../../img/left.png';
-// import ansLogo from '../../img/ansLogo.png';
+import QuesList from '../containers/QuesList.js';
 import lessonVideoCover from '../../img/image-01.jpg';
 import '../../style/pages/watchPage.css';
 
@@ -17,7 +14,7 @@ export default class WatchPage extends Component {
         super(props);
         this.state = {
             inf: null,
-            qlistState:0
+            danmu:null
         };
     }
     componentDidMount() {
@@ -28,20 +25,24 @@ export default class WatchPage extends Component {
                 //console.log(response);
                 this.setState({ inf: response });
             }
-            );
+        );
+        // console.log(this.refs.dplayer);
     }
-    handleSlideR = ()=>{
-        this.setState({
-            qlistState:2
-        })
-        console.log('aaaaaaaaa');
-    } 
 
-    handleSlideL = ()=>{
-        this.setState({
-            qlistState:1
-        })
+    toggleTime = (time) => {
+        this.refs.dplayer.dp.seek(time);
     }
+
+    danmuloaded = () => {
+        this.setState({
+            danmu:this.refs.dplayer.dp.danmaku.dan
+        });
+    }
+
+    test = () => {
+        console.log('test')
+    }
+
     render() {
         const { inf } = this.state;
         const lessonAd = inf ? {
@@ -56,17 +57,11 @@ export default class WatchPage extends Component {
                 <div className="lesson">
                     <LessonInf inf={lessonAd} />
                     <div className="playerContainer">
-                        <div 
-                        className={`listContainer ${this.state.qlistState===0?""
-                        :this.state.qlistState===1?'aniSlideLeft':'aniSlideRight'}`}>
-                            <div className="list">
-                                <img width="48px" className="hidden" onClick={this.handleSlideR} src={ Hidden } alt = "hidden" />
-                                <img width="48px" className="show" onClick={this.handleSlideL} src={ Show } alt = "show" />
-                                <h2>问题列表</h2>
-                            </div>
-                        </div>
+                        <QuesList />
                         <Dplayer
+                            ref="dplayer"
                             className="videoPlayer"
+                            onDanmaku_loaded = { this.test }
                             video={{
                                 url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
                                 pic: lessonVideoCover
@@ -77,9 +72,8 @@ export default class WatchPage extends Component {
                             }}
                         />
                     </div>
-
                 </div>
-                {/* <PPtplayer /> */}
+                <PPtplayer />
                 {/* <div className="ansQues">
                     <div className="ansHead">
                         <img src={ansLogo} className="ansLogo" alt="问答专区" />
