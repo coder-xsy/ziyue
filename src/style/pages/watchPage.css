@@ -32,3 +32,7 @@
     font-weight: bold;
 }
 
+.toggleShow>*{
+    margin-left:20px;
+}
+

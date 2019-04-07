@@ -7,8 +7,21 @@ export default class QuesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            qlistState: 0
+            qlistState: 0,
+            qlist: []
         }
+    }
+    componentDidMount() {
+        /**获取问题列表的数据(与弹幕中的内容数据结构不同) */
+        fetch(`http://yapi.demo.qunar.com/mock/52554/qlist?id=${this.props.lessonId}`,
+            { method: 'GET' })
+            .then(res => res.json())
+            .then(response => {
+                // console.log('qlist load:',response);
+                this.setState({
+                    qlist: [].concat(response)
+                });
+            });
     }
 
     handleSlideR = () => {
@@ -24,6 +37,7 @@ export default class QuesList extends Component {
     }
 
     render() {
+        const { qlist } = this.state;
         return (
             <div
                 className={`listContainer ${this.state.qlistState === 0 ? "slideInit"
@@ -36,16 +50,15 @@ export default class QuesList extends Component {
                         <span className="ques">问题</span>
                         <span className="sendTime">发送时间</span>
                     </h3>
-                    <p className="listItem">
-                        <span className="vtime">02:33</span>
-                        <span className="ques">原型链在javascript的继承中所起到的作用具体是什么呢？</span>
-                        <span className="sendTime">02-22 19:55</span>
-                    </p>
-                    <p className="listItem">
-                        <span className="vtime">02:23</span>
-                        <span className="ques">原型链</span>
-                        <span className="sendTime">02-23 18:45</span>
-                    </p>
+                    {
+                        qlist.map((item,index) => (
+                            <p className="listItem" key = { index }>
+                                <span className="vtime">{ item.videoTime }</span>
+                                <span className="ques">{ item.ques }</span>
+                                <span className="sendTime">{ item.sendTime }</span>
+                            </p>
+                        ))
+                    }
                 </div>
             </div>
         );

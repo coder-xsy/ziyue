@@ -1,4 +1,8 @@
 .pptPlayer{
-    width:100%;
     height:80vh;
+    overflow: hidden;
+}
+.ppt{
+    width:100%;
+    height:100%;
 }

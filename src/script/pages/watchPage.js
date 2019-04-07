@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Navbar, Nav, Form, Button, Col, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Dplayer from 'react-dplayer';
 import Header from '../containers/Header.js';
 import LessonInf from '../components/LessonInf.js';
@@ -13,11 +13,13 @@ export default class WatchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            type: 'video',
             inf: null,
-            danmu:null
+            danmu: null
         };
     }
     componentDidMount() {
+        /**获取课程信息 */
         fetch(`http://yapi.demo.qunar.com/mock/52554/lessonInf?lessonId=${this.props.match.params.id}`,
             { method: 'GET' })
             .then(res => res.json())
@@ -25,23 +27,39 @@ export default class WatchPage extends Component {
                 //console.log(response);
                 this.setState({ inf: response });
             }
-        );
-        // console.log(this.refs.dplayer);
+            );
     }
 
     toggleTime = (time) => {
         this.refs.dplayer.dp.seek(time);
     }
 
-    danmuloaded = () => {
-        this.setState({
-            danmu:this.refs.dplayer.dp.danmaku.dan
-        });
+    renderPlayer() {
+        const { type } = this.state;
+        switch (type) {
+            case 'video':
+                return (
+                    <Dplayer
+                        ref="dplayer"
+                        className="videoPlayer"
+                        video={{
+                            url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
+                            pic: lessonVideoCover
+                        }}
+                        danmaku={{
+                            id: 'e-ziyue@djlesson',
+                            api: 'http://yapi.demo.qunar.com/mock/52554/'
+                        }}
+                    />
+                );
+            case 'ppt':
+                return (
+                    <PPtplayer />
+                );
+            default:
+                return ''
     }
-
-    test = () => {
-        console.log('test')
-    }
+}
 
     render() {
         const { inf } = this.state;
@@ -57,11 +75,10 @@ export default class WatchPage extends Component {
                 <div className="lesson">
                     <LessonInf inf={lessonAd} />
                     <div className="playerContainer">
-                        <QuesList />
-                        <Dplayer
+                        <QuesList toggleTime={this.toggleTime} lessonId={this.props.match.params.id} />
+                        {/* <Dplayer
                             ref="dplayer"
                             className="videoPlayer"
-                            onDanmaku_loaded = { this.test }
                             video={{
                                 url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
                                 pic: lessonVideoCover
@@ -70,10 +87,13 @@ export default class WatchPage extends Component {
                                 id: 'e-ziyue@djlesson',
                                 api: 'http://yapi.demo.qunar.com/mock/52554/'
                             }}
-                        />
+                        /> */}
+                        {
+                            this.renderPlayer()
+                        }
                     </div>
                 </div>
-                <PPtplayer />
+                {/* <PPtplayer /> */}
                 {/* <div className="ansQues">
                     <div className="ansHead">
                         <img src={ansLogo} className="ansLogo" alt="问答专区" />
@@ -118,6 +138,11 @@ export default class WatchPage extends Component {
                         }}
                     />
                 </div> */}
+                <div className="toggleShow">
+                    <Button onClick = { () => {this.setState({type:'video'})} } >videoPlayer</Button>
+                    <Button onClick = { () => {this.setState({type:'ppt'})} }>PPtplayer</Button>
+                    <Button onClick = { () => {this.setState({type:'pdf'})} }>pdfPlayer</Button>
+                </div>
                 <Footer />
             </div>
         );
