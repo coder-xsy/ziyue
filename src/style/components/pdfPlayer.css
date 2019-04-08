@@ -1,0 +1,58 @@
+.pdfPlayer{
+    height:80vh;
+    overflow: hidden;
+    position: relative;
+}
+.pdfContent{
+    width:100%;
+    height:100%;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+.pdfContent canvas{
+    width:100% !important;
+    height:100% !important;
+}
+.pdfContent::-webkit-scrollbar{
+    width:4px;
+}
+.pdfContent::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0,0,0,0.4);
+}
+.pdfContent::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background:rgba(0,0,0,0.1)
+}
+
+.pdfPlayer .togglePage{
+    position: absolute;
+    /* bottom:-40px; */
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:40px;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    /* transition: bottom 0.5s; */
+}
+.pdfPlayer:hover .togglePage{
+    bottom:0px;
+}
+.pdfPlayer .pageIndexTag{
+    color:white;
+}
+.pdfPlayer .toggleBtn{
+    width:40px;
+    cursor: pointer;
+}
+.pdfPlayer .togglePage span:first-child{
+    padding-right:40px;
+}
+
+.pdfPlayer .togglePage span:last-child{
+    padding-left:40px;
+}
+.pdfPlayer .pre{
+    transform: rotateZ(180deg);
+}

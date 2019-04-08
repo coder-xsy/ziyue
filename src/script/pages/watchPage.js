@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import Dplayer from 'react-dplayer';
+import PPtplayer from '../components/PPtplayer.js';
+import PdfPlayer from '../components/PdfPlayer.js'
+
 import Header from '../containers/Header.js';
 import LessonInf from '../components/LessonInf.js';
-import PPtplayer from '../components/PPtplayer.js';
 import Footer from '../containers/Footer.js';
 import QuesList from '../containers/QuesList.js';
 import lessonVideoCover from '../../img/image-01.jpg';
@@ -55,6 +57,10 @@ export default class WatchPage extends Component {
             case 'ppt':
                 return (
                     <PPtplayer />
+                );
+            case 'pdf':
+                return (
+                    <PdfPlayer />
                 );
             default:
                 return ''
