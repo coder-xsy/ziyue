@@ -1,0 +1,143 @@
+.person .head{
+    height:90px;
+    background: #34495E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.person .head .logo{
+    background-color: #1abc9c;
+    font-weight: bold;
+    color:white;
+    border:1px solid transparent;
+    border-radius: 8px;
+    height:49px;
+    width:120px;
+    display: inline-block;
+    margin-left:6rem;
+}
+.person .head .toggleBox{
+    align-self: flex-end;
+    margin-right:6rem;
+}
+.person .head .toggleBox .toggleBtn{
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    font-size: 1.3rem;
+    width: 8rem;
+    padding-top:0.4rem;
+    padding-bottom: 0.4rem; 
+    cursor: pointer;
+    margin-right:2rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius:0.5rem;
+}
+.person .head .toggleBox .active{
+    background:#e74c3c;
+}
+
+
+
+
+
+.person .content{
+    background:#f5f6f7;
+    display: flex;
+    justify-content: center;
+    padding-top:11px;
+}
+.person .content .personInfBox{
+    min-height:500px;
+    background: white;
+    padding:1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.personInfBox .headImgBox,.personInfBox .infBox{
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: top;
+    margin:2rem 4rem;
+    position: relative;
+}
+
+.headImgBox .headImg{
+    width:20rem;
+    height:20rem;
+    border-radius: 1rem;
+    display: block;
+    margin-bottom:0.6rem;
+    border:1px solid transparent;
+    box-shadow: 0px 0px 1px 1px #666666;
+}
+.headImgBox label,.infBox button{
+    background:white;
+    display: inline-block;
+    height:2.4rem;
+    text-align: center;
+    font-weight: bold;
+    border:2px solid #666666;
+    border-radius:0.4rem;
+    outline: none;
+    cursor: pointer;
+}
+.headImgBox label{
+    width:8rem;
+    margin-top:0.4em;
+}
+.headImgBox .headImgFile{
+    position: absolute;
+    clip: rect(0,0,0,0);
+}
+.infBox button {
+    width:6rem;
+}
+.headImgBox label span,.infBox button span{
+    vertical-align: middle;
+    padding-left:0.6em;
+}
+.personInfBox .icon,.infBox .icon{
+    width:1.2em;
+    height:1.2em;
+    vertical-align: middle;
+}
+.headImgBox label:active,.infBox button:active{
+    box-shadow: 0px 0px 1px 1px #666666;
+}
+
+.infBox p{
+    display: flex;
+    align-items: center;
+}
+.infBox p:last-child{
+    justify-content: space-around;
+}
+
+.infBox .label{
+    margin:0px 1em;
+}
+
+.infBox .label,.editInf{
+    font-size: 1.4rem;
+}
+.editInf{
+    width:18rem;
+    height:2.4em;
+    line-height: 100%;
+    border:1px solid #666666; 
+    border-radius: 0.4rem;
+    outline: none;
+    padding-left:0.5em;
+}
+.editInf:focus{
+    box-shadow: 0px 0px 1px 1px #666666;
+}
+
+.editInf:disabled{
+    border:none;
+    background:white;
+}

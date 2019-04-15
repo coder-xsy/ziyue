@@ -1,12 +1,17 @@
 import React,{ Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Home from './pages/home.js';
+import Login from './pages/login.js';
+import Person from './pages/person.js';
 import WatchPage from './pages/watchPage.js';
 
 const routeList = [
   {
     path: '/',
-    component: Home
+    component: Login
+  },
+  {
+    path:'/person',
+    component: Person
   },
   {
     path: '/watchPage/:id',

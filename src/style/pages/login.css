@@ -1,0 +1,24 @@
+.login{
+    min-width: 700px;
+    min-height:768px;
+}
+.login .logo{
+    background-color: #1abc9c;
+    font-weight: bold;
+    color:white;
+    border:none;
+    height:49px;
+    width:120px;
+    display: inline-block;
+}
+.login .content{
+    /* width:100%; */
+    min-height:768px;
+    height:100vh;
+    padding-top:20px;
+    padding-bottom: 50px;
+    padding-left:80px;
+    background-image: url(../../img/head.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

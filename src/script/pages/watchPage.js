@@ -82,18 +82,6 @@ export default class WatchPage extends Component {
                     <LessonInf inf={lessonAd} />
                     <div className="playerContainer">
                         <QuesList toggleTime={this.toggleTime} lessonId={this.props.match.params.id} />
-                        {/* <Dplayer
-                            ref="dplayer"
-                            className="videoPlayer"
-                            video={{
-                                url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
-                                pic: lessonVideoCover
-                            }}
-                            danmaku={{
-                                id: 'e-ziyue@djlesson',
-                                api: 'http://yapi.demo.qunar.com/mock/52554/'
-                            }}
-                        /> */}
                         {
                             this.renderPlayer()
                         }
