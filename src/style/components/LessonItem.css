@@ -1,0 +1,92 @@
+.lessonItemBox{
+    border-bottom: 2px solid rgba(226, 229, 231, 0.5);
+}
+.lessonBox .lessonItem{
+    display: flex;
+    align-items: center;
+    padding:1rem;
+}
+.lessonBox .lessonItem .cover{
+    width:16rem;
+    height:10rem;
+    border-radius: 0.5rem;
+}
+.lessonBox .lessonItem p{
+    font-size: 1rem;
+}
+.lessonBox .lessonItem .lessonTitle{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.lessonBox .lessonItem .lessonRate{
+    color:#f01400;
+}
+.lessonBox .lessonItem .lessonRateTitle{
+    color:#787d82;
+    display: inline-block;
+    margin-left:1rem;
+}
+.lessonBox .lessonItem .lessonMessage{
+    align-self: flex-end;
+    margin-left:2rem;
+}
+.lessonBox .lessonItem .quesToggle{
+    margin:0px;
+    color:#787d82;
+}
+.lessonBox .lessonItem .study{
+    display: inline-block;
+    width:6rem;
+    height:2.4rem;
+    font-weight: bold;
+    background: white;
+    border:1px solid #f01400;
+    border-radius: 0.4rem;
+    color:#f01400;
+    outline:none;
+    margin-left:6rem;
+}
+.lessonBox .lessonItem .study:active{
+    box-shadow: 0px 0px 1px 1px #f01400;
+}
+.lessonBox .arrow{
+    width:1em;
+    /* transform: rotateZ(90deg); */
+    margin-left:2rem;
+    /* transition: transform 1s;  可以使用但是没有必要*/
+}
+.lessonItem .arrowDown{
+    transform: rotateZ(-90deg);
+}
+.lessonItem .arrowUp{
+    transform: rotateZ(90deg);
+}
+.lessonBox .quesList{
+    overflow: hidden;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+.lessonBox .quesListDown{
+    height: auto;
+}
+.lessonBox .quesListUp{
+    height: 0px;
+}
+.lessonBox .quesList ol{
+    padding-left:0px;
+    list-style: none;
+}
+.lessonBox .quesList li{
+    position: relative;
+    padding-left:2em;
+}
+.lessonBox .quesList li label{
+    position: absolute;
+    top:0px;
+    left:0px;
+}
+
+.lessonBox .quesList ol li span{
+    display: inline-block;
+    margin-right:2rem;
+}

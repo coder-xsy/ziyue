@@ -1,0 +1,32 @@
+.person .lessonBox{
+    min-height:500px;
+    background: white;
+    padding:1rem;
+    min-width:1000px;
+}
+.lessonBox .typeChose{
+    border-bottom: 1px solid black;
+    padding-top:0.4rem;
+    padding-bottom:0.4rem;
+}
+.lessonBox .typeChose span{
+    display: inline-block;
+    width:6rem;
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 1rem;
+    border:1px solid gray;
+    border-radius: 0.2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-left:1rem;
+    cursor: default;
+}
+.lessonBox .typeChose .active{
+    border-color:#1abc9c;
+    background: #1abc9c;
+    color:white;
+}
+.lessonBox .typeChose .active:active{
+    box-shadow: 0px 0px 1px 1px #1abc9c;
+}
