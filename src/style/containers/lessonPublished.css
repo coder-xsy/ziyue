@@ -1,0 +1,124 @@
+.ownLessons{
+    min-height:500px;
+    /* background: white; */
+    display: flex;
+    justify-content: center;
+    padding:1rem;
+    max-width:1120px;
+}
+.ownLessons .lessons{
+    margin-right:2rem;
+}
+.ownLessons .lessons div{
+    background: white;
+    height:2.8rem;
+    width:120px;
+    margin-bottom: 0.5em;
+    position: relative;
+    font-weight: bold;
+    font-size: 1rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    text-align: center;
+    cursor: default;
+}
+.ownLessons .lessons div p{
+    line-height: 2.8rem;
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ownLessons .lessons>div::after{
+    content: '';
+    display: block;
+    width:0px;
+    height:0px;
+    border-top:1.4rem solid transparent;
+    border-bottom: 1.4rem solid transparent;
+    border-left:1rem solid white;
+    position: absolute;
+    left:120px;
+    top:0px;
+}
+.ownLessons .lessons .chosed{
+    background: #1abc9c;
+    color:white;
+}
+.ownLessons .lessons .chosed::after{
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+    border-left-color:#1abc9c;
+}
+
+.ownLessons .lessonInf{
+    max-width:1000px;
+    min-width: 600px;
+    width: 70vw;
+    background: white;
+    padding-right:1rem;
+}
+
+.ownLessons .lessonInf .lessonIntro{
+    padding:1rem;
+    padding-right:0px;
+    display: flex;
+    align-items: center;
+    border-bottom:1px dashed rgba(156,156,156,0.5)
+}
+.lessonInf .lessonIntro .textIntro{
+    align-self: flex-end;
+    margin-right:3rem;
+    margin-left:3rem;
+}
+
+.lessonInf .lessonIntro .textIntro h2{
+    margin-bottom: 1.4rem;
+}
+.lessonInf .lessonIntro .textIntro p{
+    font-size:1.1rem;
+    margin-bottom: 0.8rem;
+}
+.lessonInf .lessonIntro .textIntro p:last-child{
+    margin-bottom: 0.1rem;
+}
+
+.lessonIntro .cover{
+    width:16rem;
+    height:10rem;
+    border-radius: 1rem;
+}
+.lessonIntro button{
+    outline: none;
+    background: white;
+    width:6rem;
+    height:2.6rem;
+    font-size: 1rem;
+    border:1px solid #f01400;
+    border-radius:0.4rem;
+    color:#f01400;
+}
+.lessonIntro button:active{
+    box-shadow: 0px 0px 1px 1px #f01400;
+}
+.lessonInf .lessonQues{
+    padding:1rem;
+}
+.lessonInf .lessonQues button{
+    width:7rem;
+    height:2.4rem;
+    display: inline-block;
+    margin-right:2rem;
+    outline: none;
+    background: white;
+    border:1px solid rgba(156,156,156,0.8);
+    color:rgba(20,20,20,0.8);
+    border-radius: 0.2rem;
+    font-weight: bold;
+}
+.lessonInf .lessonQues button.chosed{
+    background: #1abc9c;
+    border-color:#1abc9c;;
+    color:white;
+}
+

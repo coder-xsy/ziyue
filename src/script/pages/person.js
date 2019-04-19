@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../style/pages/person.css';
 import LessonBox from '../containers/LessonBox.js';
+import LessonPublished from '../containers/LessonPublished.js';
 import Footer from '../containers/Footer.js';
 import Save from '../../img/save.png';
 import Edit from '../../img/edit.png';
@@ -9,6 +10,7 @@ export default class Person extends Component{
     constructor(props){
         super(props);
         this.state={
+            accountType:'teacher', // student or teacher
             pageType:'lessons',  //lessons or personInf
             editStatus:false,
             account:'coderxsy',
@@ -76,9 +78,8 @@ export default class Person extends Component{
     }
     
     renderLessons = () => {
-        return (
-            <LessonBox />
-        )
+        const { accountType } = this.state;
+        return accountType === 'student' ? (<LessonBox />) : (<LessonPublished />);
     }
 
     render(){

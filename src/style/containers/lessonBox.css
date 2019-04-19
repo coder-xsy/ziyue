@@ -2,7 +2,9 @@
     min-height:500px;
     background: white;
     padding:1rem;
-    min-width:1000px;
+    max-width:1000px;
+    min-width: 600px;
+    width: 70vw;
 }
 .lessonBox .typeChose{
     border-bottom: 1px solid black;
