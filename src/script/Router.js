@@ -6,7 +6,7 @@ import WatchPage from './pages/watchPage.js';
 
 const routeList = [
   {
-    path: '/',
+    path: '/login',
     component: Login
   },
   {

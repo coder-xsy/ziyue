@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TempCover from '../../img/lessonJS.jpg';
 import Arrow from '../../img/left.png';
 
@@ -18,19 +19,20 @@ export default class LessonItem extends Component {
 
     render() {
         const { listStatus } = this.state;
+        const { inf } = this.props;
         return (
             <div className = "lessonItemBox">
                 <div className="lessonItem">
                     <img src={TempCover} className="cover" alt="cover" />
                     <div className="lessonMessage">
-                        <p className="lessonTitle">JavaScript入门教程</p>
-                        <p><span className="lessonRate">已学:20%</span><span className="lessonRateTitle" >学习至:2-1 原型链的继承</span></p>
+                        <p className="lessonTitle">{inf.lessonName}</p>
+                        <p><span className="lessonRate">{inf.lessonRate}</span><span className="lessonRateTitle" >{inf.lessonRateTitle}</span></p>
                         <p className="quesToggle" >
-                            <span>问答: 2</span>
+                            <span>{`问答：${inf.quesCount}`}</span>
                             <img src={Arrow} onClick = {this.handleToggle} className={`arrow ${listStatus?'arrowDown':'arrowUp'}`} alt="arrow" />
                         </p>
                     </div>
-                    <button className="study">继续学习</button>
+                    <Link className="study" to={`/watchpage/${inf.lessonId}`}>继续学习</Link>
                 </div>
                 <div className={`quesList ${listStatus?'quesListDown':'quesListUp'}`}>
                     <ol>

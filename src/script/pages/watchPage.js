@@ -22,12 +22,12 @@ export default class WatchPage extends Component {
     }
     componentDidMount() {
         /**获取课程信息 */
-        fetch(`http://yapi.demo.qunar.com/mock/52554/lessonInf?lessonId=${this.props.match.params.id}`,
+        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/lessonIntro?lessonId=${this.props.match.params.id}`,
             { method: 'GET' })
             .then(res => res.json())
             .then(response => {
                 //console.log(response);
-                this.setState({ inf: response });
+                this.setState({ inf: response.lessonIntro });
             }
             );
     }
@@ -37,9 +37,10 @@ export default class WatchPage extends Component {
     }
 
     renderPlayer() {
-        const { type } = this.state;
-        switch (type) {
-            case 'video':
+        //const { type } = this.state;
+        const id = this.props.match.params.id;
+        switch (id) {
+            case '111':
                 return (
                     <Dplayer
                         ref="dplayer"
@@ -48,17 +49,13 @@ export default class WatchPage extends Component {
                             url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
                             pic: lessonVideoCover
                         }}
-                        danmaku={{
-                            id: 'e-ziyue@djlesson',
-                            api: 'http://yapi.demo.qunar.com/mock/52554/'
-                        }}
                     />
                 );
-            case 'ppt':
+            case '222':
                 return (
                     <PPtplayer />
                 );
-            case 'pdf':
+            case '333':
                 return (
                     <PdfPlayer />
                 );
@@ -132,11 +129,11 @@ export default class WatchPage extends Component {
                         }}
                     />
                 </div> */}
-                <div className="toggleShow">
+                {/* <div className="toggleShow">
                     <Button onClick = { () => {this.setState({type:'video'})} } >videoPlayer</Button>
                     <Button onClick = { () => {this.setState({type:'ppt'})} }>PPtplayer</Button>
                     <Button onClick = { () => {this.setState({type:'pdf'})} }>pdfPlayer</Button>
-                </div>
+                </div> */}
                 <Footer />
             </div>
         );

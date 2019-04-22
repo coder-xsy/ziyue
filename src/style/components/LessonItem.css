@@ -45,10 +45,14 @@
     color:#f01400;
     outline:none;
     margin-left:6rem;
+    text-align: center;
+    line-height: 2.4rem;
 }
-.lessonBox .lessonItem .study:active{
+.lessonBox .lessonItem .study:hover{
+    text-decoration: none;
     box-shadow: 0px 0px 1px 1px #f01400;
 }
+
 .lessonBox .arrow{
     width:1em;
     /* transform: rotateZ(90deg); */

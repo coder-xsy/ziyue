@@ -67,17 +67,39 @@ export default class LoginForm extends Component{
         if(loginData.account.length === 0||loginData.password.length === 0){
             alert('请输入用户名或密码');
         }else{
-            fetch('http://yapi.demo.qunar.com/mock/52554/loginData',
-            { method:'POST', body:JSON.stringify(loginData) })
+            fetch('http://yapi.demo.qunar.com/mock/63878/ziyue/login',
+            { method:'POST', body:JSON.stringify({loginData}) })
             .then(res => res.json())
             .catch(err => console.log('loginErrorMessage:',err))
             .then(response => {
                 if(response.loginStatus === 1){
-                    //this.props.history.push('/watchPage/02');
-                    //console.log('history:',this);
+                    console.log('login OK');
                     history.push('/person');
                 }else{
                     console.log('loginDataPOST success,but error',response);
+                }
+            });
+        } 
+    }
+
+    handleRegister = () => {
+        const { registerData } = this.state;
+        const { account, email, type, password } = registerData;
+        const { history } = this.props;
+        console.log(registerData);
+        if(Object.keys(registerData).some(item => registerData[item]==='')){
+            alert('请填写完整信息');
+        }else{
+            fetch('http://yapi.demo.qunar.com/mock/63878/ziyue/register',
+            { method:'POST', body:JSON.stringify({account, email, type, password}) })
+            .then(res => res.json())
+            .catch(err => console.log('registerErrorMessage:',err))
+            .then(response => {
+                if(response.registerStatus === 1){
+                    console.log('register OK');
+                    history.push('/person');
+                }else{
+                    console.log('registerDataPOST success,but error',response);
                 }
             });
         } 
@@ -106,9 +128,9 @@ export default class LoginForm extends Component{
                     <label className = {`choice ${type === 'student'? 'chosed':''}`} onClick = {() => {this.choiceToggle('student');}}>学生</label>
                     <label className = {`choice ${type === 'teacher'? 'chosed':''}`} onClick = {() => {this.choiceToggle('teacher');}}>教师</label>
                 </div>
-                <input className = "inputItem" name = "password" value = { password } placeholder = "密码 6~12位字母或数字" onChange = { this.handleChange } />
-                <input className = "inputItem" name = "repassword" value = { repassword } placeholder = "确认密码" onChange = { this.handleChange } />
-                <button className = "registerBtn">注册</button>
+                <input className = "inputItem" type="password" name = "password" value = { password } placeholder = "密码 6~12位字母或数字" onChange = { this.handleChange } />
+                <input className = "inputItem" type="password" name = "repassword" value = { repassword } placeholder = "确认密码" onChange = { this.handleChange } />
+                <button className = "registerBtn" onClick = {this.handleRegister}>注册</button>
             </div>
         )
     }

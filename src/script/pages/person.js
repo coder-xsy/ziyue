@@ -10,7 +10,7 @@ export default class Person extends Component{
     constructor(props){
         super(props);
         this.state={
-            accountType:'teacher', // student or teacher
+            accountType:'student', // student or teacher
             pageType:'lessons',  //lessons or personInf
             editStatus:false,
             account:'coderxsy',

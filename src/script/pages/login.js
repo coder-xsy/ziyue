@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
 import LoginForm from '../containers/LoginForm.js';
 import Footer from '../containers/Footer.js';
 import '../../style/pages/login.css';

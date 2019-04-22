@@ -10,7 +10,7 @@ export default class lessonBox extends Component{
             type:'all',
             lessonList:[
                 {
-                    lessonId:'1234645789',
+                    lessonId:'111',
                     lessonName:'JavaScript入门教程',
                     cover:'img',
                     lessonRate:20,
@@ -18,8 +18,16 @@ export default class lessonBox extends Component{
                     quesCount:2
                 },
                 {
-                    lessonId:'1234645789',
-                    lessonName:'JavaScript入门教程',
+                    lessonId:'222',
+                    lessonName:'react入门教程',
+                    cover:'img',
+                    lessonRate:20,
+                    lessonRateTitle:'2-1 原型链的继承',
+                    quesCount:2
+                },
+                {
+                    lessonId:'333',
+                    lessonName:'vue入门教程',
                     cover:'img',
                     lessonRate:20,
                     lessonRateTitle:'2-1 原型链的继承',
@@ -30,7 +38,7 @@ export default class lessonBox extends Component{
     }
 
     render(){
-        const { type } = this.state;
+        const { type, lessonList } = this.state;
         return (
             <div className = "lessonBox">
                 <div className = "typeChose">
@@ -47,8 +55,9 @@ export default class lessonBox extends Component{
                         onClick = { () => {this.setState({type:'studied'});} }
                     >已完成</span>
                 </div>
-                <LessonItem />
-                <LessonItem />
+                {
+                    lessonList.map(item => (<LessonItem key = {item.lessonId} inf = {item} />))
+                }
             </div>
         );
     }
