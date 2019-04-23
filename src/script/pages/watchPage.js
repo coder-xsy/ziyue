@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import Dplayer from 'react-dplayer';
 import PPtplayer from '../components/PPtplayer.js';
 import PdfPlayer from '../components/PdfPlayer.js'
 
+import QuesIcon from '../../img/ques.png';
 import Header from '../containers/Header.js';
 import LessonInf from '../components/LessonInf.js';
 import Footer from '../containers/Footer.js';
@@ -15,9 +16,7 @@ export default class WatchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: 'video',
             inf: null,
-            danmu: null
         };
     }
     componentDidMount() {
@@ -46,7 +45,7 @@ export default class WatchPage extends Component {
                         ref="dplayer"
                         className="videoPlayer"
                         video={{
-                            url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
+                            url: 'http://192.168.73.132/static.smartisanos.cn/common/video/t1-ui.mp4',
                             pic: lessonVideoCover
                         }}
                     />
@@ -61,8 +60,8 @@ export default class WatchPage extends Component {
                 );
             default:
                 return ''
+        }
     }
-}
 
     render() {
         const { inf } = this.state;
@@ -82,6 +81,19 @@ export default class WatchPage extends Component {
                         {
                             this.renderPlayer()
                         }
+                    </div>
+                    <div className="publishQues">
+                        <h2>
+                            <img  src={QuesIcon} alt="quesIcon"  />
+                            <span>提出疑问</span>
+                        </h2>
+                        <div className ="quesForm">
+                            <label>疑问：</label>
+                            <div>
+                                <textarea className = "quesInput" placeholder="我的疑问" />
+                                <button>提交</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {/* <PPtplayer /> */}

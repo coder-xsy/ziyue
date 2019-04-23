@@ -36,3 +36,76 @@
     margin-left:20px;
 }
 
+.publishQues{
+    margin-top: 2rem;
+    padding-left: 2rem;
+}
+
+.publishQues img{
+    width:2.4rem;
+    display: inline-block;
+    margin-right:1rem;
+}
+
+.publishQues h2{
+    padding-bottom: 0.4rem;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(41,42,45,0.6);
+}
+.publishQues h2>*{
+    vertical-align: middle;
+}
+
+.publishQues .quesForm{
+    padding-top:1rem;
+}
+.publishQues .quesForm label{
+    font-size: 1.2rem;
+    float: left;
+    width:4rem;
+    font-weight: bold;
+    /* font-weight: bold; */
+    /* color:#787d82; */
+}
+.publishQues .quesForm>div{
+    padding-left:4rem;
+}
+.publishQues .quesForm textarea{
+    display: block;
+    width:60%;
+    box-sizing: border-box;
+    border:1px solid gray;
+    height:6rem;
+    resize:none;
+    padding-left:1rem;
+    color:#787d82;
+    margin-bottom: 1rem;
+}
+
+.publishQues .quesForm textarea::-webkit-scrollbar{
+    width:6px;
+}
+.publishQues .quesForm textarea::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+    background: rgba(0,0,0,0.4);
+}
+.publishQues .quesForm textarea::-webkit-scrollbar-track{
+    border-radius: 6px;
+    background:rgba(0,0,0,0.1)
+}
+
+.publishQues .quesForm button{
+    background:#1abc9c;
+    color:white;
+    outline: none;
+    border:none;
+    border-radius: 0.2rem;
+    width:6rem;
+    height:2.4rem;
+}
+.publishQues .quesForm button:hover{
+    box-shadow: 0px 0px 1px 1px #1abc9c;
+}
+.publishQues .quesForm button:active{
+    box-shadow: 0px 0px 1px 2px #1abc9c;
+}
