@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Login from './pages/login.js';
+import AnsQues from './pages/ansQues.js';
 import Person from './pages/person.js';
 import WatchPage from './pages/watchPage.js';
 
@@ -16,6 +17,10 @@ const routeList = [
   {
     path: '/watchPage/:id',
     component: WatchPage
+  },
+  {
+    path:'/ansQues/:id',
+    component: AnsQues
   }
 ];
 

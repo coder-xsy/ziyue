@@ -1,0 +1,6 @@
+.QAItem{
+    padding-left:2em;
+}
+.QAItem .index{
+    float: left;
+}

@@ -39,7 +39,7 @@ export default class LessonItem extends Component {
                         <li>
                             <label>1、</label>
                             <p>问:原型链的作用？&nbsp;&nbsp;&nbsp;&nbsp;所在章节:2-1 原型链的继承</p>
-                            <p>答:原型链的作用可以使JavaScript中可以实现对象的继承</p>
+                            <p>答: </p>
                         </li>
                         <li>
                             <label>2、</label>

@@ -1,0 +1,57 @@
+.ansQuesPage{
+    position: relative;
+}
+.ansQuesPage .content{
+    min-height:500px;
+    background: #f5f6f7;
+    display: flex;
+    justify-content: center;
+    padding-top:20px;
+}
+.ansQuesPage .content .quesDetail,.ansQuesPage .content .ansBox{
+    background: white;
+    width:60vw;
+    max-width: 800px;
+    min-width: 200px;
+    padding:20px;
+    padding-left:40px;
+    margin-bottom: 1rem;
+}
+.quesDetail .title,.ansBox .title{
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f5f6f7;
+    padding-bottom:0.3rem;
+}
+.title img{
+    width:2rem;
+    display: inline-block;
+    margin-right:1rem;
+}
+.quesDetail .detailItem span{
+    float: left;
+    width:8rem;
+    text-align: right;
+}
+.quesDetail .detailItem p{
+    padding-left:8rem;
+}
+.ansBox .form{
+    text-align: left;
+}
+.ansBox button{
+    width:4.6rem;
+    height:2.4rem;
+    color:white;
+    border:1px solid transparent;
+    border-radius: 0.4rem;
+    background:#1abc9c;
+    margin-top:0.6rem;
+    outline: none;
+}
+.ansBox button:hover{
+    box-shadow: 0px 0px 1px 1px #1abc9c;
+}
+.ansBox button:active{
+    box-shadow: 0px 0px 1px 2px #1abc9c;
+}
