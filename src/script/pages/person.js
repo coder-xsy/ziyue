@@ -9,16 +9,52 @@ import HeadImg from '../../img/boy.jpg';
 export default class Person extends Component{
     constructor(props){
         super(props);
-        this.state={
-            accountType:'student', // student or teacher
+        this.state={ 
+            accountType:this.props.match.params.accountType,//'student', // student or teacher
             pageType:'lessons',  //lessons or personInf
             editStatus:false,
-            account:'coderxsy',
+            account:this.props.match.params.account,
             email:'2586574619@qq.com',
             password:'1111111',
+            headImg:'111'
         };
     }
-    
+
+    getPerson = () => {
+        const account = this.props.match.params.account;
+        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/getPersonInf?account=${account}`,
+        {method:'GET'})
+        .then(res => res.json())
+        .catch(err => console.log(err))
+        .then(response => {
+            if(response.status===1){
+                this.setState({
+                    pageType:'personInf',
+                    email:response.inf.email,
+                    password:response.inf.password,
+                    headImg:response.inf.headImg
+                });
+            }else{
+                console.log('error on get personInf');
+            }
+        });
+    }
+
+    setPerson = () => {
+        const {email,account,password} = this.state;
+        fetch('http://yapi.demo.qunar.com/mock/63878/ziyue/setPersonInf',
+            {method:'POST',body:JSON.stringify({email,account,password})})
+            .then(res=>res.json())
+            .catch(err=>console.log('post personInf',err))
+            .then(response=>{
+                if(response.status===1){
+                    this.setState({editStatus:false});
+                }else{
+                    console.log('set Personinf error');
+                }
+            });
+    }
+
     handleChange = (event) => {
         let value ={};
         value[event.target.name] = event.target.value;
@@ -65,7 +101,7 @@ export default class Person extends Component{
                             修改
                         </span>
                     </button>
-                    <button onClick = { () => {this.setState({ editStatus:false });} }>
+                    <button onClick = { this.setPerson }>
                         <img src = { Save } className = "icon"  alt = "icon" />
                         <span>
                            保存
@@ -78,8 +114,8 @@ export default class Person extends Component{
     }
     
     renderLessons = () => {
-        const { accountType } = this.state;
-        return accountType === 'student' ? (<LessonBox />) : (<LessonPublished />);
+        const { accountType, account } = this.state;
+        return accountType === 'student' ? (<LessonBox account={account} />) : (<LessonPublished />);
     }
 
     render(){
@@ -96,7 +132,7 @@ export default class Person extends Component{
                             className = {`toggleBtn ${pageType === 'lessons' ? 'active' : ''}` }
                         >课程</span>
                         <span 
-                            onClick = {() => {this.setState({pageType:'personInf'});}} 
+                            onClick = {this.getPerson} 
                             className = {`toggleBtn ${pageType === 'personInf' ? 'active' : ''}`}
                         >个人中心</span>
                     </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../../style/components/QuesItem.css';
 export default class QuesItem extends Component{
@@ -20,11 +20,11 @@ export default class QuesItem extends Component{
                 <p>
                     <span>问：{ques.content}</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>所在课程：</span>
-                    <span title="查看所在课程"><Link to={`/watchPage/${ques.lessonId}?rate=${ques.lessonRate}`}>{ques.lessonTitle}</Link></span>
+                    <span>所在章节：</span>
+                    <span title="查看所在课程"><Link className="myLink" to={`/watchPage/${ques.lessonId}?rate=${ques.lessonRate}`}>{ques.lessonTitle}</Link></span>
                 </p>
                 <p>
-                    <span title="查看具体解答">答：<Link to={`/ansQues/${ques.lessonId}`}>{ans}</Link></span>
+                    <span title="查看具体解答">答：<Link className="myLink" to={`/ansQues/${ques.lessonId}`}>{ans}</Link></span>
                 </p>
             </li>
         )

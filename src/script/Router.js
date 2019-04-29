@@ -11,7 +11,7 @@ const routeList = [
     component: Login
   },
   {
-    path:'/person',
+    path:'/person/:accountType/:account',
     component: Person
   },
   {

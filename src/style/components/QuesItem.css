@@ -1,6 +1,17 @@
 .QAItem{
-    padding-left:2em;
+    padding-left:2.5em;
+    position: relative;
 }
 .QAItem .index{
-    float: left;
+    position: absolute;
+    top:0px;
+    left:1em;
+}
+.QAItem p{
+    overflow: hidden;    /*超出部分隐藏*/
+    white-space: nowrap;    /*不换行*/
+    text-overflow: ellipsis;
+}
+.myLink{
+    color:black;
 }

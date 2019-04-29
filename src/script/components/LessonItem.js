@@ -3,22 +3,67 @@ import { Link } from 'react-router-dom';
 import TempCover from '../../img/lessonJS.jpg';
 import Arrow from '../../img/left.png';
 
+import QuesItem from './QuesItem.js';
+
 import '../../style/components/LessonItem.css';
 
 export default class LessonItem extends Component {
     constructor(props){
         super(props);
         this.state = {
-            listStatus:false
+            listStatus:false,
+            quesList:[
+                // {
+                //     ques:{
+                //         quesId:'123',
+                //         content:"原型链的作用",
+                //         lessonId:"111",
+                //         lessonRate:20,
+                //         lessonTitle:"2.1、原型链的继承"
+                //     },
+                //     ans:"每个函数都有自己的执行环境。当执行流进入一个函数时函数的环境就会被推入一个环境栈中,当执行流进入一个函数时函数的环境就会被推入一个环境栈中,当执行流进入一个函数时函数的环境就会被推入一个环境栈中"
+                // },
+                // {
+                //     ques:{
+                //         quesId:'123',
+                //         content:"原型链的作用",
+                //         lessonId:"111",
+                //         lessonRate:20,
+                //         lessonTitle:"2.1、原型链的继承"
+                //     },
+                //     ans:"每个函数都有自己的执行环境。当执行流进入一个函数时函数的环境就会被推入一个环境栈中"
+                // }
+            ]
         }
     }
 
+    getQuesList = () => {
+        const { account, inf } = this.props;
+        const { lessonId } = inf;
+        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/student/qaList?account=${account}&lessonId=${lessonId}`,
+            {method:'GET'})
+            .then(res=>res.json())
+            .catch(err=>console.log('getQuesList error',err))
+            .then(response => {
+                if(response.status===1){
+                    this.setState({quesList:response.qaList});
+                }else{
+                    console.log('net ok ,but fail to get qalist');
+                }
+            });
+    }
+
     handleToggle = () => {
-        this.setState((preState,props) => ({listStatus:!preState.listStatus}));
+        this.setState((preState,props) => {
+            if(!preState.listStatus){
+                this.getQuesList();
+            }
+            return ({listStatus:!preState.listStatus})
+        });
     }
 
     render() {
-        const { listStatus } = this.state;
+        const { listStatus, quesList } = this.state;
         const { inf } = this.props;
         return (
             <div className = "lessonItemBox">
@@ -36,7 +81,7 @@ export default class LessonItem extends Component {
                 </div>
                 <div className={`quesList ${listStatus?'quesListDown':'quesListUp'}`}>
                     <ol>
-                        <li>
+                        {/* <li>
                             <label>1、</label>
                             <p>问:原型链的作用？&nbsp;&nbsp;&nbsp;&nbsp;所在章节:2-1 原型链的继承</p>
                             <p>答: </p>
@@ -52,7 +97,12 @@ export default class LessonItem extends Component {
                             <p>
                                 答:原型链的作用可以使JavaScript中可以实现对象的继承
                             </p>
-                        </li>
+                        </li> */}
+                        {
+                            quesList.length===0?"no ques":quesList.map((item,index)=>(
+                                <QuesItem ques={item.ques} ans={item.ans} index={index} />
+                            ))
+                        }
                     </ol>
                 </div>
             </div>
