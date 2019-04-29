@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-### `npm install before all of orders or operations`
+### `npm install`
 install module used by npm
 
 ### `npm start`
