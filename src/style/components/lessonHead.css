@@ -1,0 +1,55 @@
+.lessonHead{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.lessonHead .headImage{
+    width:30%;
+    border-radius: 6px;
+}
+
+.lessonHead .headText{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left:5%;
+}
+.lessonHead .headText .myLink{
+    color:white;
+}
+
+.lessonHead .headText .mytext{
+    width:60%;
+}
+.lessonHead .headText .mytext>p{
+    max-width: 16em;
+    font-size: 1.6rem;
+    overflow: hidden;    /*超出部分隐藏*/
+    white-space: nowrap;    /*不换行*/
+    text-overflow: ellipsis;
+}
+.lessonHead .headText .mytext .textHead{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+@media (max-width:576px){
+    .lessonHead .headImage{
+        width:50%;
+    }
+    .lessonHead .headText{
+        flex-direction: column;
+    }
+    .lessonHead .headText .mytext>p{
+        margin-bottom: 0.4em;
+    }
+}
+@media (min-width: 1200px){
+    .lessonHead .headText .mytext>p{
+        font-size: 21px;
+    }
+    .lessonHead .headText .mytext .textHead{
+        font-size: 24px;
+    }
+}

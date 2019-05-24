@@ -1,6 +1,4 @@
 import React,{ Component } from 'react';
-import { Button } from 'react-bootstrap';
-
 import LoginForm from '../containers/LoginForm.js';
 import Footer from '../containers/Footer.js';
 import '../../style/pages/login.css';
@@ -14,14 +12,10 @@ export default class Home extends Component {
         return (
             <div className = "login">
                 <div className = "content">
-                    <Button className = "logo">子曰</Button>
-                    <div>
+                    <div className="col-lg-5 col-md-6 col-sm-8">
                         <LoginForm history = {this.props.history}/>
                     </div>
                 </div>
-                {/* <h2>
-                    <Link to ="/watchPage/02">react-bootstrap</Link>
-                </h2> */}
                 <Footer />
             </div>
         );

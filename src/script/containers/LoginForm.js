@@ -1,62 +1,63 @@
 import React, { Component } from 'react';
 import '../../style/containers/LoginForm.css';
 
-export default class LoginForm extends Component{
-    constructor(props){
+export default class LoginForm extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            formType:'login',
-            loginData:{
-               account:'',
-               password:'' 
+        this.state = {
+            formType: 'login',
+            loginData: {
+                account: '',
+                password: ''
             },
-            registerData:{
-                account:'',
-                email:'',
-                type:'',
-                password:'',
-                repassword:''
+            registerData: {
+                account: '',
+                email: '',
+                type: '',
+                password: '',
+                repassword: ''
             }
         };
     }
 
     handleChange = (event) => {
         const { formType } = this.state;
-        if(formType === 'login'){
-            let updata = Object.assign({},this.state.loginData);
+        if (formType === 'login') {
+            let updata = Object.assign({}, this.state.loginData);
             updata[event.target.name] = event.target.value;
             this.setState({
-                loginData:updata
+                loginData: updata
             });
-        }else if( formType === 'register' ){
-            let updata = Object.assign({},this.state.registerData);
+        } else if (formType === 'register') {
+            let updata = Object.assign({}, this.state.registerData);
             updata[event.target.name] = event.target.value;
             this.setState({
-                registerData:updata
+                registerData: updata
             });
         }
     }
     choiceToggle = (type) => {
-        let updata = Object.assign({},this.state.registerData,{ type });
+        let updata = Object.assign({}, this.state.registerData, { type });
         this.setState({
-            registerData:updata
+            registerData: updata
         });
+        console.log(updata);
     }
 
     activeLogin = () => {
         const { formType } = this.state;
-        if(formType !== 'login'){
-            this.setState({ 
-                formType : 'login' 
+        if (formType !== 'login') {
+            this.setState({
+                formType: 'login'
             });
         }
     }
 
     activeRegister = () => {
         const { formType } = this.state;
-        if(formType !== 'register'){
+        if (formType !== 'register') {
             this.setState({
-                formType : 'register'
+                formType: 'register'
             });
         }
     }
@@ -64,22 +65,22 @@ export default class LoginForm extends Component{
     handleLogin = () => {
         const { loginData } = this.state;
         const { history } = this.props;
-        if(loginData.account.length === 0||loginData.password.length === 0){
+        if (loginData.account.length === 0 || loginData.password.length === 0) {
             alert('请输入用户名或密码');
-        }else{
+        } else {
             fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/login?account=${loginData.account}`,
-            { method:'POST', body:JSON.stringify(loginData) })
-            .then(res => res.json())
-            .catch(err => console.log('loginErrorMessage:',err))
-            .then(response => {
-                if(response.loginStatus === 1){
-                    console.log('login OK');
-                    history.push(`/person/${response.accountType}/${loginData.account}`);
-                }else{
-                    console.log('loginDataPOST success,but error',response);
-                }
-            });
-        } 
+                { method: 'POST', body: JSON.stringify(loginData) })
+                .then(res => res.json())
+                .catch(err => console.log('loginErrorMessage:', err))
+                .then(response => {
+                    if (response.loginStatus === 1) {
+                        console.log('login OK');
+                        history.push(`/person/${response.accountType}/${loginData.account}/lessons`);
+                    } else {
+                        console.log('loginDataPOST success,but error', response);
+                    }
+                });
+        }
     }
 
     handleRegister = () => {
@@ -87,66 +88,93 @@ export default class LoginForm extends Component{
         const { account, email, type, password } = registerData;
         const { history } = this.props;
         console.log(registerData);
-        if(Object.keys(registerData).some(item => registerData[item]==='')){
+        if (Object.keys(registerData).some(item => registerData[item] === '')) {
             alert('请填写完整信息');
-        }else{
+        } else {
             fetch('http://yapi.demo.qunar.com/mock/63878/ziyue/register',
-            { method:'POST', body:JSON.stringify({account, email, type, password}) })
-            .then(res => res.json())
-            .catch(err => console.log('registerErrorMessage:',err))
-            .then(response => {
-                if(response.registerStatus === 1){
-                    console.log('register OK');
-                    history.push(`/person${registerData.type}/${registerData.account}`);
-                }else{
-                    console.log('registerDataPOST success,but error',response);
-                }
-            });
-        } 
+                { method: 'POST', body: JSON.stringify({ account, email, type, password }) })
+                .then(res => res.json())
+                .catch(err => console.log('registerErrorMessage:', err))
+                .then(response => {
+                    if (response.registerStatus === 1) {
+                        console.log('register OK');
+                        history.push(`/person${registerData.type}/${registerData.account}/lessons`);
+                    } else {
+                        console.log('registerDataPOST success,but error', response);
+                    }
+                });
+        }
     }
 
-    renderLogin = () => {
-        const { loginData } = this.state;
-        const { account, password } = loginData;
+    render() {
+        const { formType } = this.state;
         return (
-            <div className = "inputGroup">
-                <input className = "inputItem" name = "account" type = "text" value = { account } placeholder = "用户名" onChange = { this.handleChange } />
-                <input className = "inputItem" name = "password" type = "password" value = { password} placeholder = "密码" onChange = { this.handleChange } />
-                <button className = "loginBtn" onClick = { this.handleLogin }>登录</button>
-            </div>
-        );
-    }
-    
-    renderRegister = () => {
-        const { registerData } = this.state;
-        const { account, email, type, password, repassword } = registerData;
-        return (
-            <div className = "inputGroup">
-                <input className = "inputItem" name = "account" type = "text" placeholder = "用户名 6~10位字母" value = { account } onChange = { this.handleChange } />
-                <input className = "inputItem" name = "email" type="email" value = { email } placeholder = "邮箱" onChange = { this.handleChange } />
-                <div className = "accountType">
-                    <label className = {`choice ${type === 'student'? 'chosed':''}`} onClick = {() => {this.choiceToggle('student');}}>学生</label>
-                    <label className = {`choice ${type === 'teacher'? 'chosed':''}`} onClick = {() => {this.choiceToggle('teacher');}}>教师</label>
+            <div className="loginForm">
+                <ul className="nav nav-tabs nav-append-content">
+                    <li className={`${formType==='login'?'active':''}`} onClick={this.activeLogin}>登录</li>
+                    <li className={`${formType==='register'?'active':''}`}onClick={this.activeRegister}>注册</li>
+                </ul>
+                <div className="tab-content">
+                    <div className={`tab-pane ${formType === 'login' ? 'active' : ''}`}>
+                        <div className="form-group has-feedback">
+                            <input type="text" name="account"
+                                value={this.state.loginData.account}
+                                onChange={this.handleChange} placeholder="账号"
+                                className="form-control"
+                            />
+                            <span className="form-control-feedback fui-user"></span>
+                        </div>
+                        <div className="form-group has-feedback">
+                            <input type="password" name="password" value={this.state.loginData.password} onChange={this.handleChange} placeholder="密码" className="form-control" />
+                            <span className="form-control-feedback fui-lock"></span>
+                        </div>
+                        <div className="operationBtn">
+                            <button className="btn btn-primary" onClick={this.handleLogin}>登录</button>
+                        </div>
+                    </div>
+                    <div className={`tab-pane ${formType === 'register' ? 'active' : ''}`}>
+                        <div className="form-group has-feedback">
+                            <input type="text" name="account" value={this.state.registerData.account}
+                                onChange={this.handleChange} placeholder="注册账号" className="form-control"
+                            />
+                            <span className="form-control-feedback fui-user"></span>
+                        </div>
+                        <div className="form-group has-feedback">
+                            <input type="email" name="email" value={this.state.registerData.email}
+                                onChange={this.handleChange} placeholder="注册邮箱"
+                                className="form-control"
+                            />
+                            <span className="form-control-feedback fui-mail"></span>
+                        </div>
+                        <div className="accountType">
+                            <label className="radio" onClick={() => { this.choiceToggle('student'); }}>
+                                <input type="radio" name="group1" value="1" />
+                                学生
+                            </label>
+                            <label className="radio" onClick={() => { this.choiceToggle('teacher'); }}>
+                                <input type="radio" name="group1" value="2" />
+                                教师
+                            </label>
+                        </div>
+                        <div className="form-group has-feedback">
+                            <input type="password" name="password" value={this.state.registerData.password}
+                                onChange={this.handleChange} placeholder="密码"
+                                className="form-control"
+                            />
+                            <span className="form-control-feedback fui-lock"></span>
+                        </div>
+                        <div className="form-group has-feedback">
+                            <input type="password" name="repassword" value={this.state.registerData.repassword}
+                                onChange={this.handleChange} placeholder="确认密码"
+                                className="form-control"
+                            />
+                            <span className="form-control-feedback fui-lock"></span>
+                        </div>
+                        <div className="operationBtn">
+                            <button className="btn btn-primary" onClick={this.handleRegister}>注册</button>
+                        </div>
+                    </div>
                 </div>
-                <input className = "inputItem" type="password" name = "password" value = { password } placeholder = "密码 6~12位字母或数字" onChange = { this.handleChange } />
-                <input className = "inputItem" type="password" name = "repassword" value = { repassword } placeholder = "确认密码" onChange = { this.handleChange } />
-                <button className = "registerBtn" onClick = {this.handleRegister}>注册</button>
-            </div>
-        )
-    }
-
-    render(){
-        const { formType }  = this.state;
-        const inputGroup = formType === 'login' ? this.renderLogin() : this.renderRegister();
-        return(
-            <div className="formGroup">
-                <div>
-                    <span onClick = { this.activeLogin } className = {`toggleType ${ formType === 'login'? 'activeForm' : '' }`}>登录</span>
-                    <span onClick = { this.activeRegister } className = {`toggleType ${ formType === 'register'? 'activeForm' : '' }`}>注册</span>
-                </div>
-                {
-                    inputGroup
-                }
             </div>
         );
     }

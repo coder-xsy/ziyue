@@ -1,25 +1,61 @@
 .ansQuesPage{
-    position: relative;
+    min-height: 100vh;
+    padding:0px;
+    display: flex;
+    flex-direction: column;
 }
 .ansQuesPage .content{
-    min-height:500px;
     background: #f5f6f7;
     display: flex;
     justify-content: center;
     padding-top:20px;
+    flex: 1;
 }
-.ansQuesPage .content .quesDetail,.ansQuesPage .content .ansBox{
+.ansQuesPage .content .ansQuesBox{
+    max-width: 900px;
+}
+.ansQuesPage .content .quesDetail{
+    padding:1rem;
+    margin-bottom: 1rem;
     background: white;
-    width:60vw;
-    max-width: 800px;
-    min-width: 200px;
-    padding:20px;
-    padding-left:40px;
+}
+.ansQuesPage .content .quesDetail::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.ansQuesPage .content .ansBox{
+    text-align: left;
+    background: white;
+    padding:1rem;
     margin-bottom: 1rem;
 }
+.ansQuesPage .content .ansBox .headText{
+    width: 100%;
+    line-height: 2;
+    margin-bottom: 1rem;
+    border: 1px solid gray;
+    color:#34495e;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left:1em;
+}
+.ansQuesPage .content .ansBox .headText::-webkit-input-placeholder{
+    color:rgba(128,128,128,0.5);
+}
+.ansQuesPage .content .ansBox .headText:-moz-placeholder{
+    color:rgba(128,128,128,0.5);
+}
+.ansQuesPage .content .ansBox .headText::-moz-placeholder{
+    color:rgba(128,128,128,0.5);
+}
+.ansQuesPage .content .ansBox .headText::-ms-input-placeholder{
+    color:rgba(128,128,128,0.5);
+}
+
 .quesDetail .title,.ansBox .title{
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     border-bottom: 2px solid #f5f6f7;
     padding-bottom:0.3rem;
 }
@@ -28,7 +64,13 @@
     display: inline-block;
     margin-right:1rem;
 }
-.quesDetail .detailItem span{
+.quesDetail .detailItem{
+    clear: both;
+}
+.quesDetail .detailItem>span,.quesDetail .detailItem>p{
+    font-size: 1.6rem;
+}
+.quesDetail .detailItem>span{
     float: left;
     width:8rem;
     text-align: right;
@@ -37,21 +79,47 @@
     padding-left:8rem;
 }
 .ansBox .form{
-    text-align: left;
+    margin-bottom: 1rem;
 }
-.ansBox button{
-    width:4.6rem;
-    height:2.4rem;
-    color:white;
-    border:1px solid transparent;
-    border-radius: 0.4rem;
-    background:#1abc9c;
-    margin-top:0.6rem;
-    outline: none;
+.ansBox .submitBtn{
+    text-align: right;
+    padding-right:2rem;
+    margin-bottom: 2rem;
 }
-.ansBox button:hover{
-    box-shadow: 0px 0px 1px 1px #1abc9c;
+.ansBox .form .w-e-toolbar{
+    flex-wrap: wrap;
 }
-.ansBox button:active{
-    box-shadow: 0px 0px 1px 2px #1abc9c;
+.ansBox .ansHead{
+    font-size: 1.8rem;
+}
+.ansBox .ansText *{
+    font-size: 1.4rem;
+}
+@media (min-width:1200px){
+    .ansQuesPage .content .ansBox .headText{
+        font-size: 24px;
+    }
+    .quesDetail .title,.ansBox .title{
+        font-size: 24px;
+    }
+    .quesDetail .detailItem span,.quesDetail .detailItem p{
+        font-size: 20px;
+    }
+}
+@media (max-width:768px) {
+    .ansBox .ansHead{
+        font-size: 18px;
+    }
+    .ansBox .ansText *{
+        font-size: 16px;
+    }
+    .quesDetail .title,.ansBox .title{
+        font-size: 16px;
+    }
+    .quesDetail .detailItem span{
+        width:6rem;
+    }
+    .quesDetail .detailItem p{
+        padding-left:6rem;
+    }
 }

@@ -1,11 +1,11 @@
 .lessonInf{
+    display: flex;
     align-items: center;
     margin:0px;
-    padding-top:5px;
-    padding-left:20px;
-    padding-bottom: 5px;
+    padding:1em;
+    margin-bottom: 6px;
     background-color: #2c3e50;
-    border:1px solid transparent;
+    border-radius: 6px;
     /* border-radius: 8px; */
 }
 
@@ -13,9 +13,12 @@
     color:white;
 }
 .lessonCover{
-    border:1px solid transparent;
-    border-radius: 8px;
-    width:100%;
+    border-radius: 6px;
+}
+@media (max-width:767px){
+    .lessonCover{
+        display: none;
+    }
 }
 .lessonText>h3{
     font-size:1.6rem;

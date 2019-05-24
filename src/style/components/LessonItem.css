@@ -1,58 +1,70 @@
 .lessonItemBox{
     border-bottom: 2px solid rgba(226, 229, 231, 0.5);
 }
+.lessonItemBox:last-child{
+    border-bottom: none;
+}
 .lessonBox .lessonItem{
     display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
     align-items: center;
-    padding:1rem;
+    padding:1em;
 }
 .lessonBox .lessonItem .cover{
-    width:16rem;
-    height:10rem;
+    display: inline-block;
+    width:32%;
     border-radius: 0.5rem;
 }
-.lessonBox .lessonItem p{
-    font-size: 1rem;
+.lessonBox .lessonItem .cover:hover{
+    opacity: 0.8;
 }
-.lessonBox .lessonItem .lessonTitle{
-    font-size: 1.4rem;
+
+.lessonBox .lessonItem .cover img{
+    width:100%;
+    border-radius: 0.5rem;
+}
+
+.lessonBox .lessonItem .lessonText{
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.lessonBox .lessonItem .lessonMessage .lessonName{
+    color:#34495e;
+    font-size: 1.8rem;
     font-weight: bold;
 }
+
+.lessonBox .lessonItem .lessonMessage{
+    align-self: flex-end;
+}
+.lessonBox .lessonItem .lessonMessage>p{
+    margin:0px;
+    font-size: 1.6rem;
+}
+.lessonBox .lessonItem .myLinkBtn{
+    font-size: 1rem;
+}
+
+
 .lessonBox .lessonItem .lessonRate{
     color:#f01400;
 }
 .lessonBox .lessonItem .lessonRateTitle{
     color:#787d82;
     display: inline-block;
-    margin-left:1rem;
+    max-width:13em;
+    overflow: hidden;    /*超出部分隐藏*/
+    white-space: nowrap;    /*不换行*/
+    text-overflow: ellipsis;
 }
-.lessonBox .lessonItem .lessonMessage{
-    align-self: flex-end;
-    margin-left:2rem;
-}
+
 .lessonBox .lessonItem .quesToggle{
     margin:0px;
     color:#787d82;
 }
-.lessonBox .lessonItem .study{
-    display: inline-block;
-    width:6rem;
-    height:2.4rem;
-    font-weight: bold;
-    background: white;
-    border:1px solid #f01400;
-    border-radius: 0.4rem;
-    color:#f01400;
-    outline:none;
-    margin-left:6rem;
-    text-align: center;
-    line-height: 2.4rem;
-}
-.lessonBox .lessonItem .study:hover{
-    text-decoration: none;
-    box-shadow: 0px 0px 1px 1px #f01400;
-}
-
 .lessonBox .arrow{
     width:1em;
     /* transform: rotateZ(90deg); */
@@ -80,17 +92,43 @@
     padding-left:0px;
     list-style: none;
 }
-/* .lessonBox .quesList li{
-    position: relative;
-    padding-left:2em;
-}
-.lessonBox .quesList li label{
-    position: absolute;
-    top:0px;
-    left:0px;
+
+.lessonBox .quesList ol li>p,.lessonBox .quesList ol li>span{
+    font-size: 1.6rem;
 }
 
-.lessonBox .quesList ol li span{
-    display: inline-block;
-    margin-right:2rem;
-} */
+@media (min-width: 1200px){
+    .lessonBox .lessonItem .lessonMessage>p{
+        font-size: 21px;
+    }
+    .lessonBox .lessonItem .lessonMessage .lessonName{
+        font-size: 24px;
+    }
+    .lessonBox .lessonItem .myLinkBtn{
+        font-size: 22px;
+    }
+    .lessonBox .quesList ol li>p{
+        font-size: 20px;
+    }
+    .lessonBox .quesList ol li>span{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px){
+    .lessonBox .lessonItem .cover{
+        width:50%;
+    }
+    .lessonBox .lessonItem .lessonText{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        align-self: stretch;
+    }
+    .lessonBox .lessonItem .lessonMessage{
+        align-self: center;
+    }
+    .lessonBox .lessonItem .myLinkBtn{
+        padding:0.6rem 1rem;
+    }
+}

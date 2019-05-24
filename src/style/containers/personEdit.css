@@ -1,0 +1,24 @@
+.personEdit{
+    background: white;
+    border-radius: 6px;
+    max-width: 660px;
+}
+.personEdit .myinput,.personEdit .toggleOperation{
+    position: relative;
+    padding-left:4em;
+    margin-top:1em;
+}
+.personEdit .toggleOperation{
+    display: flex;
+    justify-content: space-around;
+}
+.personEdit .myinput>label{
+    position: absolute;
+    display: inline-block;
+    width:4em;
+    text-align: right;
+    left:0px;
+}
+.personEdit .myinput .unable{
+    border:none;
+}

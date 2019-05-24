@@ -1,0 +1,63 @@
+.quesTable{
+    padding:0px;
+    overflow: hidden;
+}
+.quesTable .columnName{
+    margin-top:1em;
+    margin-bottom: 6px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom:0.5em;
+    border-bottom: 2px solid #34495E;
+
+    display: flex;
+    align-items:center;
+    cursor: pointer;
+}
+.quesTable .columnName:hover{
+    text-shadow: 0px 0px 1px #34495E;
+}
+
+.quesTable .columnName .myicon{
+    margin-right: 3px;
+}
+
+.quesTable .questions{
+    color: black;
+}
+.quesTable .foldBox{
+    height: 0px;
+}
+.quesTable .pagination{
+    display: flex;
+    justify-content: center;
+}
+.quesTable .pagination>ul{
+    padding:0px;
+}
+.quesTable .pagination>ul>li{
+    margin-right:0px;
+}
+.quesTable .delBtn,.quesTable .ansBtn,.quesTable .acceptBtn{
+    display: inline-block;
+    width: 2.4em;
+    text-align: center;
+    color:#1abc9c;
+    cursor: pointer;
+}
+.quesTable .delBtn:hover,.quesTable .ansBtn:hover,.quesTable .acceptBtn:hover{
+    text-decoration: underline;
+}
+.quesTable .myselect{
+    color:#526476;
+    font-weight: bold;
+    padding:3px 6px;
+    border-radius: 4px;
+}
+/* @media (max-width: 767px){
+    .quesTable .pagination>ul>li.pageBtn{
+        margin-right:0px;
+        width:16%;
+    }
+} */

@@ -1,0 +1,20 @@
+.chapterTitle{
+    font-size: 1.6rem;
+}
+.chapterChidren{
+    padding-left:2em;
+}
+.chapterChild{
+    font-size: 1.5rem;
+    margin:0px;
+    cursor: pointer;
+}
+.chapterChidren .mylink{
+    color:black;
+}
+.chapterChidren .mylink:hover{
+    color:#16a085;
+}
+.chapter .chapterTitle{
+    margin-bottom: 0px;
+}

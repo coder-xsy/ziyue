@@ -1,0 +1,125 @@
+.myheader{
+    border-radius: 0px;
+    min-height: 53px;
+    /* margin-bottom: 30px; */
+    font-size: 16px;
+    border: none;
+
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: .5rem 1rem;
+}
+
+.myheader .mytoggle{
+    height: 53px;
+    padding: 0 21px;
+    margin: 0 0 0 21px;
+    line-height: 53px;
+    color: #34495e;
+    border: none;
+    
+    position: relative;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 4px;
+}
+.myheader .mytoggle::before{
+    font-family: "Flat-UI-Pro-Icons";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: normal;
+    color: white;;
+    content: "\e61a";
+    -webkit-transition: color .25s linear;
+    transition: color .25s linear;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.myheader .mytoggle:focus::before{
+    color: #16a085;
+}
+
+.myheader .mynavList{
+    color:white;
+}
+.myheader .mytoggleItem,.myheader .active{
+    cursor: pointer;
+    padding-left:1.5em;
+    padding-right:1.5em;
+}
+.myheader .mytoggleItem:hover{
+    color:#1abc9c;
+}
+.myheader .active{
+    background-color: #1abc9c;
+    color:white;
+}
+.myheader .active a,.myheader .mytoggleItem a{
+    color:inherit;
+}
+.myheader .mynavList p{
+    margin:0px;
+}
+.myheader .mysearch .mySearchbtn{
+    height: 32px;
+    width:6em;
+    padding:4px 0.4em;
+}
+/* .myheader .mynavList div{
+    height: 100%;
+    line-height: 100%;
+} */
+@media (min-width: 769px) { 
+    .myheader .mytoggle{
+        display: none;
+    }
+    .myheader .mynavList{
+        margin-left:20px;
+        display: flex;
+        align-items: stretch;
+    }
+    .myheader .active{
+        border-radius: 4px;
+    }
+    .myheader .mynavList div{
+        display: flex;
+        align-items: center;
+        margin-left:4rem;
+    }
+    .myheader .mysearch .mySearchbtn{
+        margin-left:1em;
+    }
+}
+@media (max-width: 768px) { 
+    .myheader .mytoggle{
+        position: absolute;
+        top:6px;
+        right:6px;
+    }
+    .myheader{
+        flex-direction: column;
+    }
+    .myheader .mytoggleItem,.myheader .active{
+        padding-top:0.4em;
+        padding-bottom: 0.4em;
+        border-radius: 0.2em;
+    }
+    .myheader .mynavList{
+        width:100%;
+        text-align: center;
+        display: none;
+        border-top:2px solid #2f4154;
+    }
+    .myheader .mynavList div{
+        margin-top:4px;
+    }
+    .myheader .mysearch .mySearchbtn{
+        margin-top:4px;
+    }
+    .myheader .show{
+        display: block;
+    }
+}

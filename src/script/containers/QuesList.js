@@ -1,65 +1,49 @@
 import React, { Component } from 'react';
-import Hidden from '../../img/right.png';
-import Show from '../../img/left.png';
+import {Link} from 'react-router-dom';
+// import QuesTitle from '../../img/list.jpg';
 import '../../style/containers/QuesList.css';
 
 export default class QuesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            qlistState: 0,
             qlist: []
         }
     }
     componentDidMount() {
         /**获取问题列表的数据(与弹幕中的内容数据结构不同) */
-        fetch(`http://yapi.demo.qunar.com/mock/52554/qlist?id=${this.props.lessonId}`,
+        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/watchpage/getList?lessonId=${this.props.lessonId}&chapterId=${this.props.chapterId}`,
             { method: 'GET' })
             .then(res => res.json())
             .then(response => {
                 // console.log('qlist load:',response);
                 this.setState({
-                    qlist: [].concat(response)
+                    qlist: [].concat(response.list)
                 });
             });
     }
 
-    handleSlideR = () => {
-        this.setState({
-            qlistState: 2
-        });
-    }
-
-    handleSlideL = () => {
-        this.setState({
-            qlistState: 1
-        });
-    }
-
     render() {
         const { qlist } = this.state;
+        const {account,accountType}=this.props;
         return (
-            <div
-                className={`listContainer ${this.state.qlistState === 0 ? "slideInit"
-                    : this.state.qlistState === 1 ? 'aniSlideLeft' : 'aniSlideRight'}`}>
-                <div className="list">
-                    <img width="48px" className="hidden" onClick={this.handleSlideR} src={Hidden} alt="hidden" />
-                    <img width="48px" className="show" onClick={this.handleSlideL} src={Show} alt="show" />
-                    <h3 className="title">
-                        <span className="vtime">时间</span>
-                        <span className="ques">问题</span>
-                        <span className="sendTime">发送时间</span>
-                    </h3>
-                    {
-                        qlist.map((item,index) => (
-                            <p className="listItem" key = { index }>
-                                <span className="vtime">{ item.videoTime }</span>
-                                <span className="ques">{ item.ques }</span>
-                                <span className="sendTime">{ item.sendTime }</span>
-                            </p>
-                        ))
-                    }
-                </div>
+            <div className="listBox">
+                <table className="table mytable">
+                    <tbody>
+                        {
+                            qlist.length === 0 ? (<tr><td>none</td></tr>) : (qlist.map(
+                                (item, index) => (
+                                    <tr key={index}>
+                                        {/* <td className="indexTip" title={`跳到${item.indexTip}`}>{item.indexTip}</td> */}
+                                        <td className="indexTip">{item.indexTip}</td>
+                                        <td className="quesText" title="查看解答"><Link to ={`/${accountType}/${account}/ansQues/${item.quesId}`}>{item.text}</Link></td>
+                                        <td>{item.sendTime}</td>
+                                    </tr>
+                                )
+                            ))
+                        }
+                    </tbody>
+                </table>
             </div>
         );
     }

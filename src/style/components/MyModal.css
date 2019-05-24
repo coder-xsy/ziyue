@@ -1,0 +1,10 @@
+.modalShow{
+    display: block;
+}
+.mymodal .myDialog{
+    top:50%;
+    transform: translateY(-50%);
+}
+.mymodal .modal-footer .btn {
+    margin-bottom: 0px;
+}

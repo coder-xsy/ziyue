@@ -1,125 +1,44 @@
-.login .formGroup{
-    display: inline-block;
-    min-width: 400px;
-    max-width:650px;
-    width:36vw;
-    background-color: white;
-    margin-top:40px;
-    /* border:1px solid transparent; */
-    border-radius: 1rem;
-}
-
-.login .toggleType{
-    display: inline-block;
-    box-sizing: border-box;
-    width:50%;
-    height:4rem;
-    text-align: center;
-    font-size: 3rem;
-    background-color: #34495E;
-    color:white;
-    cursor: pointer;
-}
-
-.login .formGroup .activeForm{
-    color:black;
-    background-color: white;
-}
-
-.login .formGroup .inputGroup{
-    display: flex;
-    flex-direction: column;
-    margin-top:2rem;
-    margin-bottom: 4rem;
-    padding-right: 4rem;
-    padding-left: 4rem;
-}
-.login .inputGroup .inputItem{
-    display: block;
-    margin-top: 2rem;
-    height: 3.2rem;
-    border-radius: 1rem;
-    outline: none;
-    box-shadow: none;
-    border: 2px solid gray;
-
-    padding-left:2rem;
-    font-size: 1.6rem;
-    font-weight: 400;
-}
-.login .inputGroup .inputItem::-moz-placeholder{
-    color:rgba(80,80,80,0.4);
-}
-.login .inputGroup .inputItem::-webkit-input-placeholder{
-    color:rgba(80,80,80,0.4);
-}
-.login .inputGroup .inputItem::-ms-input-placeholder{
-    color:rgba(80,80,80,0.4);
-}
-
-.login .loginBtn,.login .registerBtn {
-    color:white;
-    outline: none;
-    height:3.2rem;
-    font-weight: bold;
-    margin-top:2rem;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 1rem;
-    border:2px solid transparent;
-    background-color: #1ab394;
-    border-radius:1rem;
-    cursor: pointer;
-}
-.login .loginBtn:hover,.login .registerBtn:hover{
-    box-shadow: 0 0 1px 1px #1ab394;
-}
-.login .loginBtn:active,.login .registerBtn:active{
-    box-shadow: 0 0 1px 2px #1ab394;
-}
-.login .inputGroup .accountType{
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: -2rem;
-    height: 3.2rem;
-    display: flex;
-    justify-content: space-around;
-}
-.login .inputGroup .accountType label{
+.loginForm{
     position: relative;
-    /* height:100%;
-    line-height: 100%; */
-    display: inline-block;
-    vertical-align: middle;
+    top:20%;
+    /* transform: translateY(-50%); */
+    background: white;
+    border-radius: 6px;
 }
-.login .inputGroup .accountType label::before{
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top:50%;
-    left:-2rem;
-    transform: translateY(-50%);
-    /* margin-right:6px; */
-    width:1.2rem;
-    height:1.2rem;
-    border:2px solid #7d7d7d;
-    border-radius: 50%;
-    vertical-align: middle;
+.loginForm .nav li{
+    color:#7f8c9a;
+    font-size: 24px;
+    width:50%;
+    text-align: center;
+    cursor: pointer;
 }
-.login .inputGroup .accountType .chosed::after{
-    content: '';
-    position: absolute;
-    display: inline-block;
-    /* left:0.18rem;
-    top:0.56rem; */
-    top:50%;
-    left:-1.8rem;
-    transform: translateY(-50%);
-    width:0.8rem;
-    height: 0.8rem;
-    border-radius: 50%;
-    background: #1ab394;
-    /* box-shadow: 0px 0px 1px 1px #1ab394; */
+.loginForm .nav li.active{
+    border-bottom:2px solid #1abc9c;
+}
+.loginForm .tab-content{
+    border:none;
 }
 
+.loginForm .accountType{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.loginForm .accountType .radio{
+    margin-top:0px;
+}
+.loginForm .accountType .radio:first-child{
+    padding-left:0px;
+    padding-right:32px;
+}
+.loginForm .accountType .radio:last-child{
+    padding-right:0px;
+    padding-left:32px;
+}
+.loginForm .operationBtn{
+    text-align: center;
+}
+.loginForm .operationBtn button{
+    padding-left:2em;
+    padding-right:2em;
+}

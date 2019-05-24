@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 // import { Button } from 'react-bootstrap';
+import QuesTitle from '../../img/list.jpg';
 import Dplayer from 'react-dplayer';
 import PPtplayer from '../components/PPtplayer.js';
 import PdfPlayer from '../components/PdfPlayer.js'
 
 import QuesIcon from '../../img/ques.png';
-import Header from '../containers/Header.js';
+import Myheader from '../containers/Myheader.js';
 import LessonInf from '../components/LessonInf.js';
 import Footer from '../containers/Footer.js';
 import QuesList from '../containers/QuesList.js';
@@ -16,17 +17,28 @@ export default class WatchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inf: null,
+            inf: {
+                lessonName:'',
+                lessonFrom:'',
+                lessonDate:'',
+                chapterTitle:''
+            }
         };
+        /**
+         * inf:{
+         *  lessonName,lessonFrom,lessonDate,chapterTitle
+         * }
+         */
     }
     componentDidMount() {
         /**获取课程信息 */
-        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/lessonIntro?lessonId=${this.props.match.params.id}`,
+        const {lessonId,chapterId} = this.props.match.params;
+        fetch(`http://yapi.demo.qunar.com/mock/63878/ziyue/lessonIntro?lessonId=${lessonId}&chapterId=${chapterId}`,
             { method: 'GET' })
             .then(res => res.json())
             .then(response => {
-                //console.log(response);
-                this.setState({ inf: response.lessonIntro });
+                // console.log(response);
+                this.setState({ inf: response.data });
             }
             );
     }
@@ -37,7 +49,7 @@ export default class WatchPage extends Component {
 
     renderPlayer() {
         //const { type } = this.state;
-        const id = this.props.match.params.id;
+        const id = this.props.match.params.lessonId;
         switch (id) {
             case '111':
                 return (
@@ -65,87 +77,49 @@ export default class WatchPage extends Component {
 
     render() {
         const { inf } = this.state;
-        const lessonAd = inf ? {
-            lessonName: inf.lessonName,
-            lessonFrom: inf.lessonFrom,
-            lessonDate: inf.lessonDate,
-            lessonLocation: inf.lessonLocation
-        } : false;
+        const {account,accountType,lessonId,chapterId}=this.props.match.params;
         return (
-            <div>
-                <Header />
-                <div className="lesson">
-                    <LessonInf inf={lessonAd} />
-                    <div className="playerContainer">
-                        <QuesList toggleTime={this.toggleTime} lessonId={this.props.match.params.id} />
-                        {
-                            this.renderPlayer()
-                        }
-                    </div>
-                    <div className="publishQues">
-                        <h2>
-                            <img  src={QuesIcon} alt="quesIcon"  />
-                            <span>提出疑问</span>
-                        </h2>
-                        <div className ="quesForm">
-                            <label>疑问：</label>
-                            <div>
-                                <textarea className = "quesInput" placeholder="我的疑问" />
-                                <button>提交</button>
+            <div className="watchPage">
+                <Myheader account={account} accountType={accountType} />
+                <div className="main">
+                    <div className="content">
+                        <div className="studystuff">
+                            <div className="stuff">
+                                <LessonInf inf={inf} />
+                                {
+                                    this.renderPlayer()
+                                }
+                                <div className="publishQues">
+                                    <h2>
+                                        <img src={QuesIcon} alt="quesIcon" />
+                                        <span>提出疑问</span>
+                                    </h2>
+                                    <div className="quesForm">
+                                        {/* <label>疑问：</label> */}
+                                        <textarea className="quesInput" placeholder="我的疑问" />
+                                        <button className="btn btn-primary btn-wide">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="listContent col-md-3">
+                                <img src={QuesTitle} className="quesTitle" alt="答疑集锦" />
+                                <div className="headText">
+                                    <span>时间</span>
+                                    <span>问题</span>
+                                    <span>发送时间</span>
+                                </div>
+                                <QuesList 
+                                    account={account}
+                                    accountType={accountType}
+                                    lessonId={lessonId} 
+                                    chapterId={chapterId}
+                                />
                             </div>
                         </div>
+
                     </div>
+
                 </div>
-                {/* <PPtplayer /> */}
-                {/* <div className="ansQues">
-                    <div className="ansHead">
-                        <img src={ansLogo} className="ansLogo" alt="问答专区" />
-                        <h2 className="ansTitle">
-                            问答
-                        </h2>
-                    </div>
-                    <AnsQuesItem
-                        inf={{
-                            queUser: '李磊',
-                            queTime: '02:33',
-                            queDate: '2019-02-03',
-                            que: '在这个视频中两分33秒的时候那几句日语是啥意思呢？',
-                            ansUser: '前端大大老师',
-                            ansTime: '02:33',
-                            ansDate: '2019-03-01',
-                            ans: '空气中氤氲这浪漫的气息，如溶解在红茶中的白糖一般'
-                        }}
-                    />
-                    <AnsQuesItem
-                        inf={{
-                            queUser: '李磊',
-                            queTime: '02:33',
-                            queDate: '2019-02-03',
-                            que: '在这个视频中两分33秒的时候那几句日语是啥意思呢？',
-                            ansUser: '前端大大老师',
-                            ansTime: '02:33',
-                            ansDate: '2019-03-01',
-                            ans: '空气中氤氲这浪漫的气息，如溶解在红茶中的白糖一般'
-                        }}
-                    />
-                    <AnsQuesItem
-                        inf={{
-                            queUser: '李磊',
-                            queTime: '02:33',
-                            queDate: '2019-02-03',
-                            que: '在这个视频中两分33秒的时候那几句日语是啥意思呢？',
-                            ansUser: '前端大大老师',
-                            ansTime: '02:33',
-                            ansDate: '2019-03-01',
-                            ans: '空气中氤氲这浪漫的气息，如溶解在红茶中的白糖一般'
-                        }}
-                    />
-                </div> */}
-                {/* <div className="toggleShow">
-                    <Button onClick = { () => {this.setState({type:'video'})} } >videoPlayer</Button>
-                    <Button onClick = { () => {this.setState({type:'ppt'})} }>PPtplayer</Button>
-                    <Button onClick = { () => {this.setState({type:'pdf'})} }>pdfPlayer</Button>
-                </div> */}
                 <Footer />
             </div>
         );
