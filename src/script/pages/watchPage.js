@@ -80,7 +80,7 @@ export default class WatchPage extends Component {
         const {account,accountType,lessonId,chapterId}=this.props.match.params;
         return (
             <div className="watchPage">
-                <Myheader account={account} accountType={accountType} />
+                <Myheader account={account} accountType={accountType} history={this.props.history} />
                 <div className="main">
                     <div className="content">
                         <div className="studystuff">

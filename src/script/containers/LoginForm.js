@@ -75,6 +75,7 @@ export default class LoginForm extends Component {
                 .then(response => {
                     if (response.loginStatus === 1) {
                         console.log('login OK');
+                        console.log(history);
                         history.push(`/person/${response.accountType}/${loginData.account}/lessons`);
                     } else {
                         console.log('loginDataPOST success,but error', response);

@@ -12,7 +12,14 @@
     justify-content: flex-start;
     padding: .5rem 1rem;
 }
-
+.myheader .myLogo{
+    width:2em;
+}
+.myheader .mybrand{
+    padding-left:1rem;
+    padding-bottom: 0px;
+    padding-top:2px;
+}
 .myheader .mytoggle{
     height: 53px;
     padding: 0 21px;
@@ -47,8 +54,8 @@
 }
 .myheader .mytoggleItem,.myheader .active{
     cursor: pointer;
-    padding-left:1.5em;
-    padding-right:1.5em;
+    padding-left:1rem;
+    padding-right:1rem;
 }
 .myheader .mytoggleItem:hover{
     color:#1abc9c;
@@ -63,16 +70,35 @@
 .myheader .mynavList p{
     margin:0px;
 }
-.myheader .mysearch .mySearchbtn{
-    height: 32px;
+.myheader .mysearch .mysearchbtn{
+    height: 2.4em;
     width:6em;
     padding:4px 0.4em;
+    background:#1abc9c;
+    border:none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    margin-left:1em;
+    color:white;
+    outline: none;
+    cursor: pointer;
 }
-/* .myheader .mynavList div{
-    height: 100%;
-    line-height: 100%;
-} */
-@media (min-width: 769px) { 
+.myheader .mysearch .mysearchbtn:hover{
+    box-shadow: 0px 0px 1px 1px #1abc9c;
+}
+.myheader .mysearch .mysearchbtn:active{
+    box-shadow: 0px 0px 1px 2px #1abc9c;
+}
+.myheader .mysearch .typeSelect{
+    height:2.4em;
+    width:4em;
+    background: #1abc9c;
+    border:none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    outline: none;
+}
+@media (min-width: 813px) { 
     .myheader .mytoggle{
         display: none;
     }
@@ -87,13 +113,13 @@
     .myheader .mynavList div{
         display: flex;
         align-items: center;
-        margin-left:4rem;
+        margin-left:3rem;
     }
     .myheader .mysearch .mySearchbtn{
         margin-left:1em;
     }
 }
-@media (max-width: 768px) { 
+@media (max-width: 812px) { 
     .myheader .mytoggle{
         position: absolute;
         top:6px;

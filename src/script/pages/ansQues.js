@@ -101,7 +101,7 @@ export default class AnsQues extends Component {
         const { ques, ans } = this.state;
         return (
             <div className="ansQuesPage">
-                <Myheader account={account} accountType={accountType} />
+                <Myheader account={account} accountType={accountType} history={this.props.historys}/>
                 <div className="content">
                     <div className="ansQuesBox col-sm-8">
                         <div className="quesDetail">

@@ -153,7 +153,10 @@ export default class QuesTable extends Component {
                                     list.map((item, index) => (
                                         <tr key={item.quesId}>
                                             <td>{index+1}</td>
-                                            <td>{item.quesText}</td>
+                                            <td className="questd">
+                                                <span className={`${item.ansStatus?"fui-check-circle":"fui-question-circle"} mydiff`}></span>
+                                                <span>{item.quesText}</span>
+                                            </td>
                                             <td>{item.time}</td>
                                             <td>{item.hot}</td>
                                             <td>
@@ -170,6 +173,7 @@ export default class QuesTable extends Component {
                         head="确认删除"
                         text={this.state.modalText} 
                         handleTrue={this.handleOK}
+                        handleClose = {this.handleCancel}
                         handleFalse={this.handleCancel}
                     />
                     <div className="pagination">

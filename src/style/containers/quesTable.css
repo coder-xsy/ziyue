@@ -55,6 +55,20 @@
     padding:3px 6px;
     border-radius: 4px;
 }
+.quesTable .mydiff{
+    float: left;
+    margin-right:1em;
+}
+.quesTable .questd{
+    display: flex;
+    align-items: center;
+}
+.quesTable .table [class*="fui-"] {
+    top:0px;
+    margin:0px;
+    margin-right:0.6em;
+    color:#1abc9c;
+}
 /* @media (max-width: 767px){
     .quesTable .pagination>ul>li.pageBtn{
         margin-right:0px;

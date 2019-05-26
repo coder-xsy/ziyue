@@ -1,0 +1,35 @@
+.searchLesson{
+    display: block;
+    cursor: pointer;
+    color:#34495e;
+    border:2px solid rgba(226, 229, 231, 0.5);
+    padding:1rem;
+    border-radius: 6px;
+    margin-bottom:1em; 
+}
+.searchLesson:hover{
+    color: #34495e;
+}
+.searchLesson:hover{
+    box-shadow: 0px 0px 2px 4px rgba(226, 229, 231, 0.5);
+}
+.searchLesson .lessonCover{
+    float: left;
+    width:30%;
+    border-radius: 0.5rem;
+    margin-right:4rem;
+}
+.searchLesson .text p{
+    margin:0px;
+    font-size: 0.9rem;
+}
+.searchLesson .text p:not(:last-child){
+    line-height: 1.8;
+}
+.searchLesson .text p:last-child{
+    font-size: 0.9rem;
+}
+.searchLesson .text .lessonName{
+    font-size: 1.6rem;
+    font-weight: bold;
+}

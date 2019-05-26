@@ -8,7 +8,7 @@ export default class Home extends Component {
         this.state={};
     }
     render() {
-        console.log('hashhistory:',this.props.history);
+        console.log('hashhistory:',document.referrer);
         return (
             <div className = "login">
                 <div className = "content">

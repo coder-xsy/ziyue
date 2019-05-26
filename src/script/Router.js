@@ -5,6 +5,7 @@ import LessonPage from './pages/lessonPage.js';
 import AnsQues from './pages/ansQues.js';
 import Person from './pages/person.js';
 import WatchPage from './pages/watchPage.js';
+import SearchPage from "./pages/searchPage.js";
 
 const routeList = [
   {
@@ -30,6 +31,10 @@ const routeList = [
   {
     path:'/:accountType/:account/ansQues/:quesId',
     component: AnsQues
+  },
+  {
+    path:'/:accountType/:account/search',
+    component: SearchPage
   }
 ];
 

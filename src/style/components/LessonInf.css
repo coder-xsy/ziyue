@@ -16,7 +16,7 @@
     border-radius: 6px;
 }
 @media (max-width:767px){
-    .lessonCover{
+    .lessonInf .lessonCover{
         display: none;
     }
 }

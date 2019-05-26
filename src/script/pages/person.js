@@ -19,7 +19,7 @@ export default class Person extends Component {
         return (
             <div className="person">
                 {/* <Myheader page="person" toggle={this.handletoggle} /> */}
-                <Myheader account={account} accountType={accountType} type={type}/>
+                <Myheader account={account} accountType={accountType} type={type} history={this.props.history}/>
                 <div className="main">
                     {/* {this.renderPersonInf()} */}
                     {/* <PersonEdit /> */}

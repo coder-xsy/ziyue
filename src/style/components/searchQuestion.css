@@ -1,0 +1,42 @@
+.searchQuestion{
+    display: block;
+    padding-bottom:1em;
+    border-bottom: 2px solid rgba(226, 229, 231, 0.5);
+    padding-left:2em;
+    padding-right:2em;
+    color:#34495e;
+}
+.searchQuestion:hover{
+    color:#34495e;
+    background: rgba(226, 229, 231, 0.5);
+    border-radius: 6px;
+}
+.searchQuestion>p{
+    margin:0px;
+    line-height: 2.8;
+}
+.searchQuestion .question,.searchQuestion .quesPerson{
+    font-size: 1.2rem;
+    display: inline-block;
+}
+.searchQuestion .question>span:last-child{
+    color:#e74c3c;
+}
+.searchQuestion .question{
+    margin-right: 4rem;
+}
+.searchQuestion .quesPerson{
+    font-size: 1rem;
+}
+.searchQuestion .quesPerson span:last-child{
+    margin-left:2em;
+}
+.searchQuestion .quesLesson{
+    font-size: 1rem;
+}
+
+@media (max-width:576px){
+    .searchQuestion .question,.searchQuestion .quesPerson{
+        display: block;
+    }
+}

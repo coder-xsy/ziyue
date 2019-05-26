@@ -16,7 +16,7 @@ export default class Lesson extends Component{
         const {loginStatus} = this.state;
         return(
             <div className="oneLesson col-sm-8">
-                <LessonHead account={account} lessonId={lessonId}/>
+                <LessonHead account={account} lessonId={lessonId} accountType={accountType}/>
                 <ChapterBox lessonId={lessonId} />
                 {accountType==='teacher'&&loginStatus?(<QuesTable account={account} lessonId={lessonId} />):('')}
             </div>

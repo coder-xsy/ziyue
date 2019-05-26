@@ -14,7 +14,7 @@ export default class LessonPage extends Component {
         const { lessonId, accountType, account } = this.props.match.params;
         return (
             <div className="lessonPage">
-                <Myheader account={account} accountType={accountType} type="lesson" />
+                <Myheader account={account} accountType={accountType} history={this.props.history}/>
                 <div className="main">
                     <Lesson lessonId={lessonId} accountType={accountType} account={account} />
                 </div>
